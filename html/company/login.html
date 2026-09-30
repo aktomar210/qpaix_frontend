@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="noindex, nofollow">
+      <title>Admin Login — QPAIX Infitech Private Limited</title>
+      <link rel="shortcut icon" type="image/x-icon" href="/images/qpaix-logo.jpg">
+      <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="/css/all.css" rel="stylesheet" media="screen">
+      <link href="/css/custom.css" rel="stylesheet" media="screen">
+      <link href="/css/qpaix-brand.css" rel="stylesheet" media="screen">
+   </head>
+   <body>
+      <div style="min-height:100vh; display:flex; align-items:center; justify-content:center; background:#f4f6fb;">
+         <div style="width:100%; max-width:400px; padding:40px; background:#ffffff; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.08);">
+            <div style="text-align:center; margin-bottom:24px;">
+               <img src="/images/qpaix-logo.jpg" alt="QPAIX" style="max-width:160px;">
+            </div>
+            <h4 style="text-align:center; margin-bottom:24px; color:#1a2b42;">Admin Login</h4>
+            <form id="qpaix-login-form">
+               <div class="mb-3">
+                  <label class="form-label" style="color:#1a2b42;">Email</label>
+                  <input type="email" class="form-control" id="login-email" name="email" required autocomplete="username" style="color:#1a2b42; background:#fff;">
+               </div>
+               <div class="mb-3">
+                  <label class="form-label" style="color:#1a2b42;">Password</label>
+                  <div style="position:relative; display:flex; align-items:center;">
+                     <input type="password" class="form-control" id="login-password" name="password" required autocomplete="current-password" style="color:#1a2b42; background:#fff; padding-right:42px; margin-bottom:0;">
+                     <button type="button" id="qpaix-toggle-password" aria-label="Show password" style="position:absolute; right:8px; top:50%; transform:translateY(-50%); display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border:none; background:none; padding:0; color:#6b7a90; cursor:pointer; line-height:1;">
+                        <i class="fa-solid fa-eye"></i>
+                     </button>
+                  </div>
+               </div>
+               <button type="submit" class="btn w-100" style="background:var(--main-color,#2E5DEA); color:#fff; padding:10px;">Log In</button>
+               <div id="qpaix-login-status" class="mt-3 text-center"></div>
+            </form>
+            <div style="text-align:center; margin-top:20px;">
+               <a href="/" style="color:#6b7a90; font-size:14px;">&larr; Back to site</a>
+            </div>
+         </div>
+      </div>
+      <script>
+        document.getElementById('qpaix-toggle-password').addEventListener('click', (e) => {
+          const input = document.getElementById('login-password');
+          const icon = e.currentTarget.querySelector('i');
+          const showing = input.type === 'text';
+          input.type = showing ? 'password' : 'text';
+          icon.classList.toggle('fa-eye', showing);
+          icon.classList.toggle('fa-eye-slash', !showing);
+        });
+
+        document.getElementById('qpaix-login-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const statusEl = document.getElementById('qpaix-login-status');
+          const submitBtn = e.target.querySelector('button[type="submit"]');
+          const email = document.getElementById('login-email').value.trim();
+          const password = document.getElementById('login-password').value;
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Logging in...';
+          statusEl.textContent = '';
+
+          try {
+            const res = await fetch('/api/admin/login', {
+              method: 'POST',
+              credentials: 'include',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username: email, password }),
+            });
+            const data = await res.json();
+            if (res.ok) {
+              window.location.href = '/';
+            } else {
+              statusEl.textContent = data.error || 'Login failed — check your email and password.';
+              statusEl.style.color = '#c62828';
+            }
+          } catch (err) {
+            statusEl.textContent = 'Something went wrong — please try again.';
+            statusEl.style.color = '#c62828';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Log In';
+          }
+        });
+      </script>
+   </body>
+
+</html>
