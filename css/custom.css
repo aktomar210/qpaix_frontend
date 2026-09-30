@@ -118,7 +118,14 @@ Sidebar heading     :  26px,500,normal "Poppins", sans-serif (Default Font);
 	--text-color: #311D19;
 	--accent-color: #FE6035;
 	--white-color: #FFFFFF;
-	--divider-color: #FFFFFF26;
+	/* Light-theme conversion: --white-color itself is kept literal white (still correct wherever
+	   it's used for an actual white fill/icon, not just as "default text color") — a new variable
+	   carries the body's own default text color instead of overloading --white-color's meaning.
+	   Every one of the ~125 `color: var(--body-text-color)` declarations across this file was auditied
+	   and reassigned to --body-text-color case by case (see individual selectors below), so this
+	   is the single source of truth for what used to be implicit white-on-dark text. */
+	--body-text-color: #1A1A2E;
+	--divider-color: #00000026;
 	--dark-divider-color: #E9E9E9;
 	--error-color: rgb(230, 87, 87);
 	--default-font: "Poppins", sans-serif;
@@ -134,22 +141,22 @@ body {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 32px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	letter-spacing: 0.8px;
-	background-color: #212125;
+	background-color: #FFFFFF;
 	overflow: hidden;
 }
 
 .sisf--page {
-	background-color: #0e0c43;
+	background-color: #FFFFFF;
 }
 
 .sisf-ai-page {
-	background-color: #110921;
+	background-color: #F8F9FB;
 }
 
 .sisf-app-show-case-page {
-	background-color: #090d12;
+	background-color: #F8F9FB;
 }
 
 p {
@@ -204,7 +211,7 @@ img {
 }
 
 a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	text-decoration: none !important;
 }
 
@@ -311,7 +318,7 @@ body {
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
 	background: var(--main-color);
-	color: var(--white-color);
+	color: var(--body-text-color);
 	border-radius: 50px;
 	padding: 16px 28px 16px 28px;
 	font-family: var(--default-font);
@@ -328,7 +335,7 @@ body {
 .btn-default:hover {
 	color: var(--main-color);
 	border: 1px solid var(--white-color) !important;
-	background-color: var(--white-color) !important;
+	background-color: var(--body-text-color) !important;
 }
 
 .sisf-dropdown-cart-content .btn-default.rounded-0:hover {
@@ -344,7 +351,7 @@ body {
 	width: 40px;
 	height: 40px;
 	border-radius: 0%;
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	background-image: url('../images/arrow-orange.html');
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -378,7 +385,7 @@ body {
 }
 
 .btn-secondary {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	border: 1px solid var(--white-color) !important;
 }
 
@@ -416,7 +423,7 @@ body {
 }
 
 .btn-default.btn-highlighted {
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	color: var(--accent-color);
 }
 
@@ -479,7 +486,7 @@ body {
 	right: 0;
 	bottom: 0;
 	z-index: 1000;
-	background-color: var(--primary-color);
+	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -817,15 +824,15 @@ body {
 }
 
 .comman-bg {
-	background-color: #1A1A1A;
+	background-color: #FFFFFF;
 }
 
 .bg-texture-dark {
-	background-color: #1C1D20 !important;
+	background-color: #F1F1F1 !important;
 }
 
 .bg--texture-dark {
-	background-color: #170C2D !important;
+	background-color: #F1F1F1 !important;
 }
 
 .back-to-top {
@@ -839,7 +846,7 @@ body {
 	justify-content: center;
 	padding: 0;
     background-color: var(--main-color);
-    color: var(--white-color);
+    color: var(--body-text-color);
     font-size: 20px;
     border-radius: 10px;
     text-align: center;
@@ -854,7 +861,7 @@ body {
 
 .back-to-top:hover {
 	color: var(--main-color);
-    background-color: var(--white-color);
+    background-color: var(--body-text-color);
 	transition: all 0.3s ease-in-out;
 }
 
@@ -875,13 +882,13 @@ body {
 }
 
 .header-top {
-	background-color: #212125;
+	background-color: #F8F9FB;
 	padding: 10px 0px;
 }
 
 .sisf--it-company .header-top,
 .sisf--it-company .sisf--header {
-	background-color: #000000b8 !important;
+	background-color: #F8F9FBb8 !important;
 }
 
 .header-top .container {
@@ -894,7 +901,7 @@ body {
 
 .header-top a {
 	cursor: pointer;
-    color: var(--white-color);
+    color: var(--body-text-color);
 	font-size: 16px;
 	transition: 0.4s ease-in-out;
 }
@@ -924,7 +931,7 @@ body {
 }
 
 .sisf-skin--light .sisf-e-title-text {
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 	font-size: 16px !important;
 	transition: 0.3s ease-in-out;
 }
@@ -964,7 +971,7 @@ header.main-header .header-sticky.active {
 	right: 0;
 	border-radius: 0;
 	transform: translateY(0);
-	background: var(--primary-color);
+	background: #FFFFFF;
 	border-bottom: 1px solid var(--divider-color);
 	backdrop-filter: blur(30px);
 }
@@ -1011,20 +1018,20 @@ header.main-header .header-sticky.active {
 }
 
 .sisf--header {
-	background-color: #212125;
+	background-color: #F8F9FB;
 	border-radius: 100px;
 	padding: 0 45px;
 }
 
 .startup-page {
-	background-color: #0C0C0C !important;
+	background-color: #FFFFFF !important;
 }
 
 .sisf-page .container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #212125;
+	background-color: #F8F9FB;
 	border-radius: 100px;
 	padding: 0 45px !important;
 }
@@ -1056,13 +1063,13 @@ header.main-header .header-sticky.active {
 }
 
 #sisf-page-header-inner .input-group input::placeholder {
-	color: var(--white-color)  !important;
+	color: var(--body-text-color)  !important;
 }
 
 
 #sisf-page-header-inner .input-group input:focus,
 #sisf-page-header-inner .input-group input {
-	color: var(--white-color)  !important;
+	color: var(--body-text-color)  !important;
 }
 
 .sisf-divided-header-left-wrapper .icon-location-pin,
@@ -1130,7 +1137,7 @@ header.main-header .header-sticky.active {
 }
 
 .header-icon .sisf-icon-list-item {
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(0, 0, 0, 0.06);
 	padding: 8px 20px 8px 20px;
 	border-radius: 50px;
 }
@@ -1148,11 +1155,11 @@ header.main-header .header-sticky.active {
 }
 
 .header-icon .search-input::placeholder {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .header-icon .search-input {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .header-icon .sisf-icon-list-item .search-btn {
@@ -1165,7 +1172,7 @@ header.main-header .header-sticky.active {
 	border-radius: 50%;
 	padding: 5px;
 	width: 30px;
-	color: var(--white-color);
+	color: #FFFFFF;
 	height: 30px;
 	display: flex;
 	align-items: center;
@@ -1180,7 +1187,7 @@ header.main-header .header-sticky.active {
 	height: 25px;
 	border-radius: 100px;
 	background: var(--primary-color);
-	color: var(--white-color);
+	color: #FFFFFF;
 	font-size: 14px;
 	display: flex;
 	font-weight: 500;
@@ -1235,7 +1242,7 @@ header.main-header .header-sticky.active {
 	position: absolute;
 	top: -12px;
     right: -15px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .cart-image {
@@ -1260,12 +1267,12 @@ header.main-header .header-sticky.active {
 	font-weight: 500;
 	text-transform: uppercase;
 	padding: 10px 30px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sisf-button.sisf-layout--outlined:hover {
 	border: 1px solid var(--main-color);
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	transition: 0.4s ease-in-out;
 	color: var(--main-color);
 }
@@ -1295,7 +1302,7 @@ header.main-header .header-sticky.active {
 
 .select2-dropdown {
 	width: 100% !important;
-    background: #232528;
+    background: #F1F1F1;
     padding: 20px;
     min-width: 325px;
 	border-radius: 10px;
@@ -1305,7 +1312,7 @@ header.main-header .header-sticky.active {
 }
 
 .select2-search--dropdown .select2-search__field {
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	border-radius: 50px;
 	padding: 15px;
 }
@@ -1316,7 +1323,7 @@ header.main-header .header-sticky.active {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 }
 
 .select2-container--default .select2-selection--single {
@@ -1353,7 +1360,7 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-skin--light .main-menu ul li a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .main-menu-inner ul li a {
@@ -1420,8 +1427,9 @@ header.main-header .header-sticky.active {
 	position: absolute;
 	left: -10px;
 	top: 100%;
-	background-color: var(--primary-color);
+	background-color: #FFFFFF;
 	border-top: 1px solid var(--main-color);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 	transition: all 0.4s ease-in-out;
 	text-align: left;
 	padding: 20px 0;
@@ -1452,7 +1460,7 @@ header.main-header .header-sticky.active {
 }
 
 .main-menu ul ul li a {
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 	padding: 6px 0px 6px 0px !important;
 	transition: all 0.3s ease-in-out;
 	font-family: var(--default-font);
@@ -1536,7 +1544,7 @@ header.main-header .header-sticky.active {
     top: calc(50% - 6px);
     right: 0;
     font-size: 12px;
-    color: var(--white-color);
+    color: var(--body-text-color);
     line-height: normal;
 	transition: all 0.3s ease-in-out;
 }
@@ -1570,7 +1578,7 @@ header.main-header .header-sticky.active {
 	font-weight: 600;
 	margin-bottom: 15px;
 	text-transform: capitalize;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .page--link {
@@ -1634,7 +1642,7 @@ header.main-header .header-sticky.active {
 	position: absolute;
 	width: 100%;
 	padding: 0;
-	background: #212125;
+	background: #F8F9FB;
 	border-radius: 0 0 0px 0;
 }
 
@@ -1647,7 +1655,7 @@ header.main-header .header-sticky.active {
 }
 
 .slicknav_nav li {
-    border-bottom: 1px solid #2f2f2f;
+    border-bottom: 1px solid #E1E1E1;
 }
 
 .slicknav_nav .slicknav_row,
@@ -1657,7 +1665,7 @@ header.main-header .header-sticky.active {
 	font-weight: 700;
 	text-transform: uppercase;
 	padding: 10px 20px;
-	color: #DEDEDE;
+	color: var(--body-text-color);
 	line-height: normal;
 	margin: 0;
 	border-radius: 0 !important;
@@ -1747,12 +1755,12 @@ header.main-header .header-sticky.active {
 .left-menu-side-area-menu ul li a:hover::before {
 	transform: scaleX(1);
 	transition: transform .4s ease-out;
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 }
 
 .left-menu-side-area-menu ul li a:hover {
 	padding-left: 30px !important;
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 }
 
 .contact-information .sisf-icon-list-item .sisf-icon-holder {
@@ -1771,7 +1779,7 @@ header.main-header .header-sticky.active {
 }
 
 .contact--information .sisf-icon-list-item .sisf-icon-holder i {
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 }
 
 .contact-information h4 {
@@ -1810,7 +1818,7 @@ header.main-header .header-sticky.active {
 }
 
 .sidebar-social-links ul li a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	line-height: normal;
 }
 
@@ -2079,13 +2087,13 @@ header.main-header .header-sticky.active {
 	padding: 15px 30px;
 	font-size: 16px;
 	border-radius: 50px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	text-transform: uppercase;
 	transition: all ease 0.5s;
 }
 
 .hero-content .btn-slider:hover {
-	background-color: var(--white-color) !important;
+	background-color: var(--body-text-color) !important;
 	color: var(--main-color);
 	border: 1px solid var(--white-color);
 	transition: all ease 0.5s;
@@ -2124,7 +2132,7 @@ header.main-header .header-sticky.active {
 
 .down-arrow a i {
 	font-size: 20px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	transition: all 0.3s ease-in-out;
 }
 
@@ -2147,7 +2155,7 @@ header.main-header .header-sticky.active {
 }
 
 .hero .home-slide .section-title h1 {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	position: relative;
 	padding: 50px 0 0 100px;
 	z-index: 3;
@@ -2170,7 +2178,7 @@ header.main-header .header-sticky.active {
 	width: 60px;
 	height: 60px;
 	display: flex;
-	background-color: var(--primary-color);
+	background-color: #EDEDED;
 	opacity: 1;
 	justify-content: center;
 	align-items: center;
@@ -2180,7 +2188,7 @@ header.main-header .header-sticky.active {
 
 .hero-slider .swiper-button-prev::after,
 .hero-slider .swiper-button-next::after {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	line-height: 70px;
 	font-size: 20px;
 	opacity: 1;
@@ -2412,7 +2420,7 @@ header.main-header .header-sticky.active {
 	padding: 30px;
 	text-align: center;
 	box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.02);
-    border-right: 1px solid #2D2F34;
+    border-right: 1px solid #E1E1E1;
 	vertical-align: middle;
 }
 
@@ -2457,7 +2465,7 @@ header.main-header .header-sticky.active {
 .sisf-showcase .sisf-e-inner {
    padding: 20px 30px;
    border-radius: 80px;
-   border: 1px solid #3E4B5C;
+   border: 1px solid #E1E1E1;
 }   
 
 /* ================================================
@@ -2481,12 +2489,12 @@ header.main-header .header-sticky.active {
 =================================== */
 
 .counter-section {
-	border-top: 1px solid #2D2F34;
-	border-bottom: 1px solid #2D2F34;
+	border-top: 1px solid #E1E1E1;
+	border-bottom: 1px solid #E1E1E1;
 }
 
 .sisf-counter-box {
-	border-right: 1px solid #2D2F34;
+	border-right: 1px solid #E1E1E1;
 	overflow: hidden;
 }
 
@@ -2640,19 +2648,24 @@ header.main-header .header-sticky.active {
 	transition: 0.3s ease-in-out;
 }
 
+.sisf-services-item:hover .sisf--button .sisf-sis-button .icon1,
+.sisf-services-item:hover .sisf--button .sisf-sis-button .icon2 {
+	color: #FFFFFF;
+}
+
 .sisf--button .sisf-sis-button {
 	width: 70px;
 	height: 70px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #2A2A2F;
+	background-color: #EDEDED;
 	border-radius: 50%;
 	transition: 0.3s ease-in-out;
 }
 
 .sisf-services-item .sisf-m-content h3 a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 20px;
 	font-weight: 600;
 	font-family: var(--default-font);
@@ -2678,7 +2691,7 @@ header.main-header .header-sticky.active {
 
 .sisf--button .sisf-sis-button .icon1,
 .sisf--button .sisf-sis-button .icon2 {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 20px;
 	display: inline-block;
 	display: flex;
@@ -2721,7 +2734,7 @@ header.main-header .header-sticky.active {
 
 .sisf-sis-right-side,
 .sisf-sis--right-side {
-	background-color: #2A2A2F;
+	background-color: #EDEDED;
     margin: 0px 0px 25px 0px;
     padding: 25px 25px 25px 25px;
     border-radius: 30px 30px 30px 30px;
@@ -2767,7 +2780,7 @@ header.main-header .header-sticky.active {
 .sisf-services-list-item .sisf-services-count,
 .sisf-services-list-item .services_seprator {
 	color: transparent;
-	-webkit-text-stroke-color: var(--white-color);
+	-webkit-text-stroke-color: var(--body-text-color);
 	-webkit-text-stroke-width: 1px;
 	font-size: 60px;
 	font-family: var(--default-font);
@@ -2844,8 +2857,8 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-services-slider-item .sisf-button-round .sisf-sis-button {
-	background-color: #323335;
-	color: var(--white-color);
+	background-color: #EDEDED;
+	color: var(--body-text-color);
 	width: 115px;
 	height: 115px;
 }
@@ -2874,8 +2887,8 @@ header.main-header .header-sticky.active {
 
 .service-slider .swiper-buttons .swiper-button-prev,
 .service-slider .swiper-buttons .swiper-button-next {
-	color: var(--white-color);
-    background-color: #FFFFFF2E;
+	color: var(--body-text-color);
+    background-color: #0000001F;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -2906,7 +2919,7 @@ header.main-header .header-sticky.active {
    AI Startup Page - Services Section css
 ========================================= */
 .services--section {
-	background-color: #211736;
+	background-color: #F8F9FB;
 }
 
 .transforming-image {
@@ -2934,7 +2947,7 @@ header.main-header .header-sticky.active {
 .sisf--services-item .sisf-button {
 	width: 60px;
 	height: 60px;
-	background-color: #2a2a2f;
+	background-color: #EDEDED;
 	border-radius: 50px;
 	display: flex;
 	align-items: center;
@@ -2944,6 +2957,7 @@ header.main-header .header-sticky.active {
 
 .sisf--services-item:hover .sisf-button {
 	background-color: #311C58;
+	color: #FFFFFF;
 	transition: 0.3s ease-in-out;
 }
 
@@ -3037,7 +3051,7 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-cards-list.sisf-layout-standard .sisf-cards-item .sisf-card-content {
-	background-color: #313135;
+	background-color: #EDEDED;
     justify-content: flex-start;
     text-align: left;
     background-position: 91% 12%;
@@ -3057,6 +3071,12 @@ header.main-header .header-sticky.active {
 .sisf-cards-list.sisf-layout-standard .sisf-cards-item .sisf-card-content:hover {
 	background-color: var(--primary-color);
 	transition: 0.3s ease-in-out;
+}
+
+.sisf-cards-list.sisf-layout-standard .sisf-cards-item .sisf-card-content:hover h4,
+.sisf-cards-list.sisf-layout-standard .sisf-cards-item .sisf-card-content:hover .sisf-m-role,
+.sisf-cards-list.sisf-layout-standard .sisf-cards-item .sisf-card-content:hover .sisf-card-title {
+	color: #FFFFFF;
 }
 
 .sisf-cards-list.sisf-layout-standard .sisf-cards-item .sisf-card-content1 {
@@ -3143,9 +3163,9 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-bottom-box {
-	background-color: #212125;
+	background-color: #F8F9FB;
 	border-radius: 30px 30px 30px 30px;
-	border: 1px solid #3E3E41;
+	border: 1px solid #E1E1E1;
 	padding: 25px;
 }
 
@@ -3180,7 +3200,7 @@ header.main-header .header-sticky.active {
    (SaaSPro) 10. Portfolio List Section css
 ========================================= */
 .sisf-portfolio-list-item {
-	background: #2A2A2F;
+	background: #F8F9FB;
     border-radius: 34px;
     padding: 20px;
 	margin-bottom: 20px;
@@ -3222,6 +3242,11 @@ header.main-header .header-sticky.active {
 	transition: 0.3s ease-in-out;
 }
 
+.sisf-portfolio-list-item:hover .sisf-sis-button .icon1,
+.sisf-portfolio-list-item:hover .sisf-sis-button .icon2 {
+	color: #FFFFFF;
+}
+
 .sisf-portfolio-list-item:hover .sisf-e-title-wraper {
 	border-bottom: 1px solid var(--white-color);
 	transition: 0.3s ease-in-out;
@@ -3241,7 +3266,7 @@ header.main-header .header-sticky.active {
 	font-size: 150px;
     font-weight: 600;
     line-height: 1.1em;
-    color: #FFFFFF0D;
+    color: #0000000D;
 	margin: 0 0 30px 50px;
 }
 
@@ -3292,9 +3317,9 @@ header.main-header .header-sticky.active {
 }
 
 .sisf--portfolio-item .portfolio-button a {
-    color: var(--white-color);
-    background-color: #323335;
-    border: 1px solid #323335;
+    color: var(--body-text-color);
+    background-color: #EDEDED;
+    border: 1px solid #DDDDDD;
     font-size: 14px;
     font-weight: 500;
     text-transform: none;
@@ -3342,7 +3367,7 @@ header.main-header .header-sticky.active {
    IT Company Page Portfolio List Section css
 ============================================= */
 .portfolio--list-section {
-	background-color: #0B093A;
+	background-color: #F8F9FB;
 }
 
 .sisf-portfolio-slider-item .sisf-button-round {
@@ -3373,7 +3398,7 @@ header.main-header .header-sticky.active {
 .sisf-portfolio-slider-item .sisf-portfolio-background-text {
     font-size: 70px;
     font-weight: 600;
-    color: #FFFFFF17;
+    color: #00000012;
 	line-height: 1;
 	font-family: var(--heading-font);
 }
@@ -3426,7 +3451,7 @@ header.main-header .header-sticky.active {
    Portfolio Detail Page css
 ============================ */
 .sisf-e-right-holder .sisf-e-right-inner {
-    background: #212125;
+    background: #F8F9FB;
     padding: 40px;
     margin-left: -110px;
     box-shadow: 0px 0 41px 0 rgba(0, 0, 0, 0.5);
@@ -3464,7 +3489,7 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-e-right-holder .sisf-e-right-inner .social-icons a {
-    background: #2A2A2F;
+    background: #EDEDED;
     padding: 10px;
     border-radius: 50px;
     width: 50px;
@@ -3603,7 +3628,7 @@ header.main-header .header-sticky.active {
 
 .sisf-sis-our-testimonial {
 	padding: 25px;
-	border: 1px solid #424073;
+	border: 1px solid #E1E1E1;
     border-radius: 24px 24px 24px 24px;
 	margin-bottom: 30px;
 }
@@ -3682,10 +3707,10 @@ header.main-header .header-sticky.active {
 .team-member-content .social-icons a {
 	width: 45px;
     height: 45px;
-	background: #0C1315;
+	background: #EDEDED;
     border-radius: 50px;
     text-align: center;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	opacity: 1 !important;
 	display: inline-flex;
 	align-items: center;
@@ -3794,7 +3819,7 @@ header.main-header .header-sticky.active {
 	transform: translateY(0px);
 	height: auto;
 	opacity: 1;
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	bottom: -68px;
 	left: 0%;
 	z-index: 2;
@@ -3854,12 +3879,12 @@ header.main-header .header-sticky.active {
 
 .sisf-item-layout-info-below .social-icons span {
 	border-radius: 100px;
-	background: #243139;
+	background: #EDEDED;
 	width: 30px;
 	height: 30px;
 	padding: 2px 2px 0 2px;
 	text-align: center;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	display: inline-block;
 	line-height: 25px;
 	transition: 0.3s ease-in-out;
@@ -4067,7 +4092,7 @@ header.main-header .header-sticky.active {
 
 .sisf-item-layout--info-below-left .social-icons a,
 .sisf-item-layout--info-side-image .social-icons a {
-	background: rgba(255, 255, 255, 0.10);
+	background: rgba(0, 0, 0, 0.10);
     width: 40px;
     height: 40px;
 	margin-right: 15px;
@@ -4101,7 +4126,7 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-item-layout--info-side-image .sisf-m-inner {
-	background-color: #090D12;
+	background-color: #F1F1F1;
     padding: 40px;
 }
 
@@ -4255,7 +4280,7 @@ header.main-header .header-sticky.active {
 =================================== */
 .sisf-amazing-video-section {
     background-color: transparent;
-    background-image: linear-gradient(180deg, #1C1D20 25%, var(--secondary-color) 20%);
+    background-image: linear-gradient(180deg, #F1F1F1 25%, var(--secondary-color) 20%);
 }
 
 .video-section {
@@ -4280,9 +4305,9 @@ header.main-header .header-sticky.active {
 .video-section .intro-video-box .content-overlay {
 	position: relative;
 	z-index: 6;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	padding: 50px;
-	background-color: #1C1D20;
+	background-color: #F1F1F1;
 	width: 40%;
 }
 
@@ -4447,7 +4472,7 @@ header.main-header .header-sticky.active {
     line-height: 1.2em;
     letter-spacing: 3.3px;
     margin: 30px 0;
-	-webkit-text-stroke-color: var(--white-color);
+	-webkit-text-stroke-color: var(--body-text-color);
     -webkit-text-stroke-width: 1px;
     color: transparent !important;
 	transition: 0.3s ease-in-out;
@@ -4465,7 +4490,7 @@ header.main-header .header-sticky.active {
 }
 
 .timeline-slider .sisf-e-item .sisf-e-content-holder-inner {
-	background-color: #212125;
+	background-color: #F8F9FB;
 	padding: 30px;
 }
 
@@ -4482,7 +4507,7 @@ header.main-header .header-sticky.active {
 }
 
 .timeline-slider .sisf-e-item .sisf-e-point-holder .sisf-e-point {
-    background-color: var(--white-color);
+    background-color: var(--body-text-color);
     width: 100%;
     height: 100%;
     display: flex;
@@ -4499,7 +4524,7 @@ header.main-header .header-sticky.active {
     width: 60px;
     height: 60px;
     display: flex;
-    background-color: #24262B;
+    background-color: #EDEDED;
     opacity: 1;
     justify-content: center;
     align-items: center;
@@ -4511,7 +4536,7 @@ header.main-header .header-sticky.active {
 
 .timeline-slider .swiper-button-prev::after, 
 .timeline-slider .swiper-button-next::after {
-    color: var(--white-color);
+    color: var(--body-text-color);
     line-height: 70px;
     font-size: 20px;
     opacity: 1;
@@ -4555,7 +4580,7 @@ header.main-header .header-sticky.active {
 	font-size: 80px;
     font-weight: 700;
     text-transform: uppercase;
-    -webkit-text-stroke-color: var(--white-color);
+    -webkit-text-stroke-color: var(--body-text-color);
     -webkit-text-stroke-width: 1px;
 	color: transparent;
 }
@@ -4623,7 +4648,7 @@ header.main-header .header-sticky.active {
 .sisf-sis-info-cards.sisf-link-overlay {
 	position: relative;
 	padding: 40px;
-	border: 1px solid #38383D;
+	border: 1px solid #E1E1E1;
 	transition: 0.3s ease-in-out;
 }
 
@@ -4726,7 +4751,7 @@ header.main-header .header-sticky.active {
 .ideas-text h1 {
 	font-size: 110px;
     font-weight: 600;
-    color: #FFFFFF0F;
+    color: #0000000D;
 	margin: 0;
 	padding: 0;
 	line-height: 78px;
@@ -4788,7 +4813,7 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-button-round:hover .sisf-sis-button {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	transition: 0.3s ease-in-out;
 }
 
@@ -4870,7 +4895,7 @@ header.main-header .header-sticky.active {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-	background-color: #212125;
+	background-color: #F8F9FB;
     width: 76px;
     height: 76px;
     border-radius: 8px 8px 8px 8px;
@@ -4976,18 +5001,18 @@ header.main-header .header-sticky.active {
    (SaaSPro) 27 Pricing Plans css
 ================================= */
 .sisf-sis-pricing-table {
-	background-color: #1E152F;
-	border: 1px solid #302641;
+	background-color: #FFFFFF;
+	border: 1px solid #E1E1E1;
 	border-radius: 10px 10px 10px 10px;
 }
 
 .sisf-sis-pricing--table {
-	background-color: #212125 !important;
+	background-color: #F8F9FB !important;
 }
 
 .sisf-sis-pricing-table .sisf-m-top {
 	padding: 40px 40px 20px 40px;
-	border-bottom: 1px solid #302641;
+	border-bottom: 1px solid #E1E1E1;
 }
 
 .sisf-sis-pricing-table .sisf-m-content .sisf-e-item {
@@ -5092,7 +5117,7 @@ header.main-header .header-sticky.active {
 	background-position: center;
 	padding: 50px 50px 0px 50px;
 	border-radius: 80px;
-	border: 1px solid #2D3947;
+	border: 1px solid #E1E1E1;
 	margin-bottom: 70px;
 }
 
@@ -5105,7 +5130,7 @@ header.main-header .header-sticky.active {
 }
 
 .sisf-sis-icon-money-transfer-text {
-	background-color: #1F3551;
+	background-color: #EDEDED;
     margin: 35px 0px 15px 0px;
     padding: 15px 20px 15px 20px;
     border-radius: 15px 15px 15px 15px;
@@ -5118,7 +5143,7 @@ header.main-header .header-sticky.active {
 }
 
 .sisf--sis-icon-money-transfer-text {
-	background-color: #1E4042 !important;
+	background-color: #EDEDED !important;
 }
 
 .sisf-sis-icon-money-transfer-text .sisf-m-icon-wrapper img {
@@ -5148,8 +5173,8 @@ header.main-header .header-sticky.active {
 
 .sisf-comman-buttons.swiper-buttons .swiper-button-prev,
 .sisf-comman-buttons.swiper-buttons .swiper-button-next {
-	color: var(--white-color);
-    background-color: #FFFFFF2B;
+	color: var(--body-text-color);
+    background-color: #0000001F;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5177,8 +5202,8 @@ header.main-header .header-sticky.active {
 ================================= */
 .sisf-event-slider .sisf-e-inner {
     border-radius: 20px;
-    border: 1px solid #2D3947;
-    background: #111821;
+    border: 1px solid #E1E1E1;
+    background: #F8F9FB;
     padding: 25px;
 	overflow: hidden;
 }
@@ -5277,7 +5302,7 @@ header.main-header .header-sticky.active {
 	border-style: solid;
 	border-width: 1px 1px 1px 1px;
 	border-color: #485464;
-	background: #292f37;
+	background: #EDEDED;
     border-radius: 50px;
     overflow: hidden;
     z-index: 1;
@@ -5462,7 +5487,7 @@ header.main-header .header-sticky.active {
 	border-radius: 0px;
 	padding: 30px 0px;
 	background-color: transparent !important;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .accordion .accordion-button span {
@@ -5480,7 +5505,7 @@ header.main-header .header-sticky.active {
 }
 
 .faqs--accordian .accordion-item {
-	border: 1px solid #2F2F34;
+	border: 1px solid #E1E1E1;
     border-radius: 10px;
 	margin-top: 30px;
 	padding-left: 30px;
@@ -5510,14 +5535,14 @@ header.main-header .header-sticky.active {
     height: 30px;
     display: block;
     background-color: transparent;
-    color: var(--white-color);
+    color: var(--body-text-color);
     font-size: 20px;
     transition: all 0.3s ease;
 } 
 
 .faqs_accordian .accordion-button:not(.collapsed)::before {
     content: '\f068';
-    color: var(--white-color);
+    color: var(--body-text-color);
 	position: absolute;
     left: 0;
     top: 30%;
@@ -5525,7 +5550,7 @@ header.main-header .header-sticky.active {
     height: 30px;
     display: block;
     background-color: transparent;
-    color: var(--white-color);
+    color: var(--body-text-color);
     font-size: 20px;
     transition: all 0.3s ease;
 }
@@ -5581,10 +5606,10 @@ header.main-header .header-sticky.active {
 .form-section .form-control {
 	font-size: 16px;
 	padding: 25px;
-	border: 1px solid #FFFFFF54;
+	border: 1px solid #00000033;
 	background-color: transparent;
 	border-radius: 100px;
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 	box-shadow: none;
 	outline: none;
 	line-height: normal;
@@ -5597,7 +5622,7 @@ header.main-header .header-sticky.active {
 
 .form-section .form-control:focus, 
 .form-section .form-control::placeholder {
-    color: var(--white-color);
+    color: var(--body-text-color);
 }
 
 select.form-control {
@@ -5653,7 +5678,7 @@ select.form-control {
 .letest-blog .sisf-e-info-category a {
 	margin-right: 10px;
 	background: var(--main-color);
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 18px;
 	font-weight: 600;
 	padding: 5px 10px;
@@ -5705,7 +5730,7 @@ select.form-control {
 	font-size: 16px;
 	transition: 0.5s ease-in-out;
 	font-weight: 500;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .blogs-list .sisf-blog-content span {
@@ -5723,7 +5748,7 @@ select.form-control {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	margin-bottom: 10px;
 }
 
@@ -5732,7 +5757,7 @@ select.form-control {
 }
 
 .blogs-list .sisf-blog-title-link {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-weight: 500;
 	margin: 10px 0;
 	position: relative;
@@ -5811,7 +5836,7 @@ select.form-control {
 }
 
 .letest-blog--section {
-	background-color: #170C2D;
+	background-color: #F8F9FB;
 }
 
 .letest-blog--item {
@@ -5830,7 +5855,7 @@ select.form-control {
 .letest-blog--item .sisf-e-content {
 	width: 100%;
     position: unset !important;
-    background: #212125;
+    background: #F8F9FB;
     margin-left: -55%;
     flex: 1;
 }
@@ -5910,7 +5935,7 @@ select.form-control {
 	text-transform: none;
 	font-weight: 400;
 	transition: 0.4s ease-in-out;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .letest-blog--item .sisf-e-info-date a,
@@ -6022,7 +6047,7 @@ select.form-control {
 }
 
 .sisf-page-title .sisf-m-title {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	text-shadow: 0px 4px 40px rgba(0, 0, 0, 0.30);
     font-size: 46px;
     font-style: normal;
@@ -6073,7 +6098,7 @@ select.form-control {
 /************************************/
 .error-page {
 	padding: 250px 0 100px 0;
-	background-color: #090D12;
+	background-color: #F8F9FB;
 }
 
 .error-page-content .sisf-404-background-text {
@@ -6085,7 +6110,7 @@ select.form-control {
 	margin: 0 auto;
 	left: 0;
 	right: 0;
-	color: #cdcfd2;
+	color: #E1E1E1;
 }
 
 .error-page-content .sisf-404-title {
@@ -6185,7 +6210,7 @@ select.form-control {
 	position: relative;
 	z-index: 2;
 	padding: 50px;
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	margin: 0px 0px 0px -100px;
 	box-shadow: 0px 0px 70px 4px rgba(0, 0, 0, 0.1);
     transition: border 0.3s, border-radius 0.3s, box-shadow 0.3s;
@@ -6255,9 +6280,9 @@ select.form-control {
 .sisf-shop-results .product-ordering {
 	position: relative;
 	display: inline-block;
-	border: 1px solid #232528;
+	border: 1px solid #F1F1F1;
     padding: 12px 15px;
-    background: #232528;
+    background: #F1F1F1;
     border-radius: 50px;
 }
 
@@ -6277,7 +6302,7 @@ select.form-control {
 	transform: translateY(-50%);
 	pointer-events: none;
 	font-size: 12px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sisf-shop-results .product-ordering select {
@@ -6293,7 +6318,7 @@ select.form-control {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
@@ -6381,12 +6406,12 @@ select.form-control {
 }
 
 .sisf-product-list .product .sisf-product-inner .sisf-image-content-inner .button.add-to-cart {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 18px;
 }
 
 .sisf-product-list .product .sisf-product-inner .sisf-image-content-inner .shop-product {
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 	transition: 0.3s ease-in-out;
 }
 
@@ -6430,7 +6455,7 @@ select.form-control {
 	position: relative;
 	overflow: hidden;
 	padding: 25px;
-	background-color: #232528;
+	background-color: #F1F1F1;
 }
 
 .product .heart-icon {
@@ -6441,7 +6466,7 @@ select.form-control {
     border-radius: 0%;
     justify-content: center;
     position: absolute;
-	background: #2A2D30 !important;
+	background: #EDEDED !important;
     top: 15px;
     left: 15px;
 	z-index: 2;
@@ -6458,7 +6483,7 @@ select.form-control {
 }
 
 .product:hover .heart-icon i {
-    color: var(--white-color);
+    color: var(--body-text-color);
 	transition: .3s ease-in-out;
 }
 
@@ -6486,7 +6511,7 @@ select.form-control {
 	font-weight: 500;
 	line-height: normal;
 	letter-spacing: 0.5px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sisf-product-inner .sisf-underline--left {
@@ -6589,14 +6614,14 @@ select.form-control {
 }
 
 .sisf-layout-filled:hover {
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 }
 
 .sisf-page-sidebar {
 	border-radius: 10px;
     border: 1px solid #2f2f2f;
     padding: 25px 0 0px 0;
-    background: #232528;
+    background: #F1F1F1;
 	position: relative;
 	display: inline-block;
 	width: 100%;
@@ -6613,11 +6638,11 @@ select.form-control {
 }
 
 .filter .dropdown-toggle {
-    border: 1px solid #232528;
+    border: 1px solid #F1F1F1;
     padding: 10px 30px;
-    background: #232528;
+    background: #F1F1F1;
     border-radius: 100px;
-    color: var(--white-color);
+    color: var(--body-text-color);
     letter-spacing: 1.4px;
     width: 200px;
 }
@@ -6628,10 +6653,10 @@ select.form-control {
 	position: absolute;
 	top: 100%;
 	z-index: 5;
-	background: #232528;
+	background: #F1F1F1;
 	border-radius: 10px;
-	border: 1px solid #232528;
-	color: var(--white-color);
+	border: 1px solid #F1F1F1;
+	color: var(--body-text-color);
 	bottom: auto;
 	height: auto;
 	max-height: none;
@@ -6653,7 +6678,7 @@ select.form-control {
 }
 
 .sisf-dropdown-filter .filter-section .form-check-label {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sisf-dropdown-filter .sisf-m-button .toggle-text {
@@ -6699,8 +6724,8 @@ select.form-control {
 }
 
 .sisf-sis-dropdown .dropdown-button {
-    background-color: #232528;
-    border: 1px solid #232528;
+    background-color: #F1F1F1;
+    border: 1px solid #F1F1F1;
     padding: 10px 20px;
     border-radius: 30px;
     cursor: pointer;
@@ -6714,9 +6739,9 @@ select.form-control {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #232528;
+    background-color: #F1F1F1;
     min-width: 350px;
-    border: 1px solid #232528;
+    border: 1px solid #F1F1F1;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 3;
     border-radius: 10px;
@@ -6773,7 +6798,7 @@ select.form-control {
 	position: relative;
 	border-radius: 0px;
 	background: transparent;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	margin: 0;
 	border: 1px solid #666;
 }
@@ -6790,7 +6815,7 @@ select.form-control {
 	padding: 0;
 	background-color: transparent;
 	border: 0;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	margin-left: 1em;
 }
 
@@ -6807,7 +6832,7 @@ select.form-control {
 }
 
 .sisf-page-sidebar ul li a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	transition: 0.3s ease-in-out;
 	font-size: 18px;
     line-height: normal;
@@ -6904,7 +6929,7 @@ select.form-control {
 }
 
 .sidebar_content-list .content_list_widget li .sisf-price .price-amount {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 	font-size: 16px;
 	font-style: normal;
@@ -6933,7 +6958,7 @@ select.form-control {
 	text-transform: capitalize;
 	vertical-align: top;
 	transition: 0.4s ease-in-out;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sidebar_tag-list a.tag:hover {
@@ -7026,7 +7051,7 @@ select.form-control {
 .product-main-gallery img,
 .product-small-gallery img {
 	width: 100%;
-	background: #232528;
+	background: #F1F1F1;
 }
 
 .product-main-gallery {
@@ -7130,7 +7155,7 @@ select.form-control {
 	height: 30px;
 	display: flex;
 	background: var(--main-color);
-	color: var(--white-color);
+	color: var(--body-text-color);
 	justify-content: center;
 	align-items: center;
 	border-radius: 50px;
@@ -7144,7 +7169,7 @@ select.form-control {
 }
 
 .sisf-social-share .sisf-social-list li a:hover {
-	color: var(--white-color);
+	color: #FFFFFF;
 	transition: 0.4s ease-in-out;
 	background: var(--primary-color);
 }
@@ -7224,7 +7249,7 @@ select.form-control {
 }
 
 .product_meta>span .sisf-meta-value a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sisf-quantity-buttons {
@@ -7305,7 +7330,7 @@ select.form-control {
 	margin: 0 0px 0 0;
 	outline: 0;
 	font-variant-numeric: lining-nums;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
@@ -7347,7 +7372,7 @@ select.form-control {
 	padding: 15px 30px;
 	font-weight: 500;
 	line-height: normal;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	letter-spacing: 0.8px;
 	border: 1px solid transparent;
 	border-radius: 0%;
@@ -7372,7 +7397,7 @@ select.form-control {
 	width: 100%;
 	vertical-align: top;
 	padding-top: 40px;
-	border-top: 1px solid #382D4B;
+	border-top: 1px solid #E1E1E1;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
@@ -7390,13 +7415,13 @@ select.form-control {
 	position: relative;
 	font-size: 22px;
 	font-weight: 600;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-family: var(--default-font);
 	text-transform: capitalize;
 }
 
 .product-tab-content {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .product-tab-box .discription h5:before {
@@ -7437,7 +7462,7 @@ select.form-control {
 
 .reviews-title {
 	text-transform: none;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 26px;
 	line-height: 1.25em;
 	letter-spacing: 0.5px;
@@ -7536,7 +7561,7 @@ select.form-control {
 	display: block;
 	margin-bottom: 14px;
 	text-transform: none;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 35px;
 	line-height: 1.25em;
 	letter-spacing: 0.5px;
@@ -7587,7 +7612,7 @@ select.form-control {
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
-	color: var(--white-color) !important;
+	color: var(--body-text-color) !important;
 	letter-spacing: 0.7px;
 	border: 1px solid #7A7979;
 	padding: 15px 20px;
@@ -7596,7 +7621,7 @@ select.form-control {
 
 .review_form_box input[type="text"]:focus,
 .review_form_box textarea:focus {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	border: 1px solid var(--secondary-color);
 }
 
@@ -7616,7 +7641,7 @@ select.form-control {
 }
 
 .related_products {
-	border-top: 1px solid #382D4B;
+	border-top: 1px solid #E1E1E1;
 	margin-top: 30px;
 	padding-top: 30px;
 }
@@ -7677,7 +7702,7 @@ select.form-control {
 .page-pagination ul li.active a,
 .page-pagination ul li a:hover {
 	background: var(--main-color);
-	color: var(--white-color);
+	color: var(--body-text-color);
 	transition: 0.5s ease-in-out;
 }
 
@@ -7695,7 +7720,7 @@ select.form-control {
 .food-size-container .food-button {
 	padding: 6px 20px;
 	background: var(--primary-color);
-	color: var(--white-color);
+	color: #FFFFFF;
 	border: 0;
 	border-radius: 50px;
 	line-height: 1.54em;
@@ -7787,7 +7812,7 @@ table {
 
 .cart-form-table .shop_table tr td.product-name a {
 	font-weight: 500;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .cart-form-table .shop_table tr td.product-remove a {
@@ -7821,18 +7846,18 @@ table {
 	border-radius: 0px;
 	border: 1px solid #2f2f2f !important;
 	padding: 8px 21px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	background-color: transparent;
 }
 
 .shop_table .coupon input[type="text"]:focus {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	outline: none;
 	border: 1px solid var(--secondary-color) !important;
 }
 
 .shop_table .coupon input[type="text"]::placeholder {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .shop_table .actions .button {
@@ -7854,7 +7879,7 @@ table {
 	width: 35%;
 	margin-top: 92px;
 	border-radius: 0px;
-	background: #232528;
+	background: #F1F1F1;
 	padding: 24px;
 	box-shadow: 0 0 42px 0 rgba(0, 0, 0, 0.08);
 }
@@ -7999,7 +8024,7 @@ table {
 	height: 77px;
 	border: 2px solid #EEE;
 	border-radius: 10px;
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 }
 
 .sisf-checkout-cart-items-content .sisf-e-image img {
@@ -8054,17 +8079,17 @@ table {
 	padding: 8px 21px;
 	background-color: transparent;
 	border-radius: 0px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .checkout_coupon .coupon-code-box input.input-text:focus {
 	outline: none;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	border: 1px solid var(--secondary-color) !important;
 }
 
 .checkout_coupon .coupon-code-box input::placeholder {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 /**************************
@@ -8101,7 +8126,7 @@ table {
 .myaccount-navigation ul li.is-active a {
 	background: var(--main-color);
 	border-color: var(--main-color);
-	color: var(--white-color);
+	color: var(--body-text-color);
 	transition: 0.4s ease-in-out;
 }
 
@@ -8115,7 +8140,7 @@ table {
 }
 
 .myaccount-content a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	transition: 0.5s ease-in-out;
 }
 
@@ -8189,7 +8214,7 @@ table {
 	font-size: 16px;
 	border: none;
 	outline: none;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	box-shadow: none;
 	padding: 12px 15px 12px 15px;
 	background-color: transparent;
@@ -8200,7 +8225,7 @@ table {
 }
 
 .billing-form .input-text:focus {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	border: 1px solid var(--secondary-color);
 }
 
@@ -8249,7 +8274,7 @@ select {
 	outline: 0;
 	cursor: pointer;
 	transition: color 0.3s ease-out, background-color 0.3s ease-out, border-color 0.3s ease-out;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
@@ -8282,11 +8307,11 @@ select {
 	transform: translateY(-50%);
 	pointer-events: none;
 	font-size: 13px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .checkout-form .form-row .input-text::placeholder {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 14px;
 }
 
@@ -8297,14 +8322,14 @@ select {
 .sisf-checkout-left .billing-field-wrapper {
 	padding: 40px;
 	border: 1px solid #2f2f2f;
-    background: #232528;
+    background: #F1F1F1;
 	border-radius: 0px;
 	margin-bottom: 40px;
 }
 
 .sisf-checkout-left .content-box {
 	border: 1px solid #2f2f2f;
-    background: #232528;
+    background: #F1F1F1;
 	border-radius: 0px;
 	padding: 24px;
 	box-shadow: 0 0 42px 0 rgb(0 0 0 / 8%);
@@ -8313,7 +8338,7 @@ select {
 .sisf-checkout-right .sisf-checkout-cart-items-content,
 .sisf-checkout-right .sisf-checkout-cart-totals {
 	border: 1px solid #2f2f2f;
-    background: #232528;
+    background: #F1F1F1;
 	border-radius: 0px;
 	padding: 24px;
 	box-shadow: 0 0 42px 0 rgb(0 0 0 / 8%);
@@ -8515,13 +8540,13 @@ select {
 
 .sisf-social-links-widget .sisf-social-list li a {
 	border-radius: 0px;
-	border: 1px solid #2b2b2b;
-	background: #2b2b2b;
+	border: 1px solid #EDEDED;
+	background: #EDEDED;
 	padding: 15px;
 	align-items: center;
 	transform: translateY(0px);
 	display: flex;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 18px;
 	line-height: 0;
 	opacity: 1;
@@ -8529,7 +8554,7 @@ select {
 }
 
 .sisf-social-links-widget .sisf-social-list li a:hover {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	background: var(--main-color);
 	transform: translateY(-5px);
 	border: 1px solid var(--main-color);
@@ -8781,7 +8806,7 @@ select {
 }
 
 .sisf-blog-item.sisf-item-layout-boxed .sisf-e-content {
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	padding: 20px;
 	width: 90%;
 	margin: 0 auto;
@@ -8795,12 +8820,12 @@ select {
 	top: 0;
 	right: 0;
 	padding: 12px 18px;
-	background-color: #111;
+	background-color: #F1F1F1;
 	z-index: 2;
 }
 
 .sisf-blog-item.sisf-item-layout-boxed .sisf-e-info-date a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sisf-blog-item.sisf-item-layout-boxed .sisf-e-title .sisf-e-title-link {
@@ -8898,7 +8923,7 @@ select {
 }
 
 .sisf-blog-single .sisf-author-info .sisf-m-content .sisf-m-author {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 500;
@@ -8908,7 +8933,7 @@ select {
 }
 
 .sisf-blog-single .sisf-author-info .sisf-m-content .sisf-m-description {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .sisf-page-comments .sisf-m-comments .sisf-comment-item {
@@ -9154,7 +9179,7 @@ select {
 }
 
 .looks-amazing-section {
-	background-color: #0c1213;
+	background-color: #FFFFFF;
 }
 
 .icons-list-items .icon-list-image img {
@@ -9197,7 +9222,7 @@ select {
 }
 
 .dark-mode-section-title h2 {
-    color: #FFFFFF26;
+    color: #00000014;
     font-size: 110px;
     font-weight: 500;
     text-transform: none;
@@ -9242,7 +9267,7 @@ select {
 
 .sisf-area .functionalities {
 	width: 20%;
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	margin: 0 20px 20px 0;
 	border-radius: 20px 20px 20px 20px;
 	padding: 30px;
@@ -9369,7 +9394,7 @@ select {
 }
 
 .subscription-container {
-	background-color: #FFFFFF29;
+	background-color: #0000001A;
 	margin-top: 40px;
 	border-radius: 50px;
 }
@@ -9383,23 +9408,23 @@ select {
 	margin-bottom: 0px !important;
 	border-radius: 0px;
 	border: none;
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .subscription-container input:focus {
 	outline: none;
 	box-shadow: none;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	background: transparent;
 }
 
 .subscription-container input::placeholder {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	background: transparent;
 }
 
 .subscription-container button {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	background: transparent;
 	border-radius: 0px;
 	font-weight: 500;
@@ -9432,7 +9457,7 @@ select {
 }
 
 .about-footer-content p {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	margin: 0;
 	font-size: 15px;
 	font-style: normal;
@@ -9444,7 +9469,7 @@ select {
 
 .footer-contact p {
 	font-size: 16px;
-	color: #c6c6c6;
+	color: #5B6472;
 }
 
 .footer-social-links ul {
@@ -9464,7 +9489,7 @@ select {
 	border-radius: 100%;
 	align-items: center;
 	margin-right: 20px;
-	background-color: #ffffff4a;
+	background-color: rgba(0, 0, 0, 0.06);
 }
 
 
@@ -9473,7 +9498,7 @@ select {
 }
 
 .footer-social-links ul li a i {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 18px;
 	padding-top: 10px;
 	transition: all 0.3s ease-in-out;
@@ -9490,7 +9515,7 @@ select {
 .footer-contact h3 {
 	margin-top: 0;
 	margin-bottom: 25px;
-	color: var(--white-color);
+	color: var(--body-text-color);
 	font-size: 40px;
 	font-style: normal;
 	font-family: var(--heading-font);
@@ -9527,7 +9552,7 @@ select {
 }
 
 .footer-links ul li a {
-	color: #c6c6c6;
+	color: #5B6472;
 	font-weight: 500;
 	transition: all 0.3s ease-in-out;
 }
@@ -9546,7 +9571,7 @@ select {
 }
 
 .sisf-page-footer-middle-area .text p {
-	color: #c6c6c6;
+	color: #5B6472;
 }
 
 .footer-info-box p {
@@ -9556,7 +9581,7 @@ select {
 	font-weight: 500;
 	line-height: 30px;
 	letter-spacing: 0.3px;
-	color: #c6c6c6;
+	color: #5B6472;
 	margin: 10px 0;
 }
 
@@ -9575,7 +9600,7 @@ select {
 }
 
 .footer-info-box-content p {
-	color: var(--white-color);
+	color: var(--body-text-color);
 	margin-bottom: 0;
 }
 
@@ -9584,11 +9609,11 @@ select {
 }
 
 .footer-blog-post-details .blog_list_widget .sisf-blog-title a {
-	color: var(--white-color);
+	color: var(--body-text-color);
 }
 
 .footer-blog-post-details .publish-date {
-	color: #CDCFCF;
+	color: #7A8494;
 	font-size: 13px;
 }
 
@@ -9642,11 +9667,11 @@ select {
 .sisf-page-footer-middle-area {
 	padding-top: 70px;
 	padding-bottom: 70px;
-	border-bottom: 1px solid #222C30;
+	border-bottom: 1px solid #E1E1E1;
 }
 
 .sisf-sis-page-footer-top-area {
-	background-color: #18191d;
+	background-color: #F8F9FB;
     background-image: url("../images/footer-top.png");
 	background-size: cover;
     background-position: top left;
@@ -9654,15 +9679,15 @@ select {
 }
 
 .sisf--sis-page-footer-top-area {
-   background-color: #18191d;
+   background-color: #F8F9FB;
 }
 
 .footer-single {
-	background-color: #0d134a;
+	background-color: #F8F9FB;
 }
 
 .footer--single {
-	background-color: #111821;
+	background-color: #F8F9FB;
 }
 
 .sisf-block-heading {
@@ -9680,7 +9705,7 @@ select {
 
 .sisf-block-heading h2 strong {
 	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: var(--white-color);
+    -webkit-text-stroke-color: var(--body-text-color);
     color: transparent;
 }
 
@@ -9702,7 +9727,7 @@ select {
 }
 
 .sisf-footer-btn a:hover {
-	background-color: var(--white-color);
+	background-color: var(--body-text-color);
 	transition: 0.3s ease-in-out;
 }
 
@@ -10165,7 +10190,7 @@ select {
 	}
 
 	.hire-dream .hire-now {
-		background: #222525;
+		background: #EDEDED;
 		padding: 40px;
 	}
 
@@ -13162,7 +13187,7 @@ select {
 	}
 
 	.sisf-amazing-video-section {
-		background-image: linear-gradient(180deg, #1C1D20 11%, var(--secondary-color) 11%);
+		background-image: linear-gradient(180deg, #F1F1F1 11%, var(--secondary-color) 11%);
 	}
 
 	.section-inner-counters {

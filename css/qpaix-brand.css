@@ -70,7 +70,8 @@ header.sisf-main-header,
 	background-color: transparent !important;
 }
 
-/* User-requested: menu bar floating pill, top bar, and dropdown menus match #0e0c43 */
+/* Light-theme conversion: menu bar floating pill, top bar, and dropdown menus match the site's
+   light theme (was dark navy #0e0c43) */
 .sisf--it-company .header-top,
 .sisf--it-company .sisf--header,
 .main-menu ul ul,
@@ -78,13 +79,13 @@ header.sisf-main-header,
 .responsive-menu,
 .slicknav_menu,
 .slicknav_nav {
-	background-color: #0e0c43 !important;
+	background-color: #FFFFFF !important;
 }
 
 /* Ultra-optimized sleek glass preloader with zero GPU lag */
 .preloader {
 	background-color: transparent !important;
-	background: rgba(14, 12, 67, 0.72) !important;
+	background: rgba(255, 255, 255, 0.85) !important;
 	backdrop-filter: blur(12px) !important;
 	-webkit-backdrop-filter: blur(12px) !important;
 	transition: opacity 0.2s ease, visibility 0.2s ease !important;
@@ -246,7 +247,7 @@ header.sisf-main-header,
 .inner-page-hero-section {
 	padding-top: 230px !important;
 	padding-bottom: 95px !important;
-	background: #0e0c43 !important;
+	background: #F8F9FB !important;
 	position: relative !important;
 	z-index: 1 !important;
 }
@@ -256,7 +257,7 @@ header.sisf-main-header,
 }
 
 .inner-page-hero-section .sisf-m-subtitle {
-	color: #00bcd4 !important;
+	color: #0088A3 !important;
 	letter-spacing: 2px !important;
 	font-size: 15px !important;
 	font-weight: 700 !important;
@@ -265,7 +266,7 @@ header.sisf-main-header,
 }
 
 .inner-page-hero-section .sisf-m-title {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	font-size: 52px !important;
 	font-weight: 700 !important;
 	line-height: 1.25 !important;
@@ -344,16 +345,16 @@ header.sisf-main-header,
 	}
 }
 
-/* User-requested: dark sections recolor to match site theme navy (#0e0c43) */
+/* Light-theme conversion: dark sections recolor to match site's light theme (was navy #0e0c43) */
 .bg-texture-dark {
-	background-color: #0e0c43 !important;
+	background-color: #F1F1F1 !important;
 }
 
 /* Team Member Cards Styling */
 .sis-team-member {
 	border-radius: 16px;
 	overflow: hidden;
-	background: #111a2e;
+	background: #F1F1F1;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -365,7 +366,7 @@ header.sisf-main-header,
 .sis-team-member .team-member-img figure {
 	margin: 0;
 	overflow: hidden;
-	background: #0d1933;
+	background: #E1E1E1;
 }
 
 .sis-team-member .team-member-img img {
@@ -458,10 +459,11 @@ header.sisf-main-header,
 }
 
 .sisf-sis-slider.sisf-layout--info-below .sisf-m-inner {
-	background: #111a2e;
+	background: #FFFFFF;
 	border-radius: 16px;
 	overflow: hidden;
-	border: 1px solid rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 	transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -488,26 +490,27 @@ header.sisf-main-header,
 .sisf-sis-slider.sisf-layout--info-below .sisf-m-title {
 	font-size: 18px;
 	font-weight: 600;
-	color: #fff;
+	color: var(--body-text-color, #1A1A2E);
 	margin-bottom: 2px;
 }
 
 .sisf-sis-slider.sisf-layout--info-below .sisf-m-role {
 	font-size: 13px;
-	color: #00bcd4;
+	color: #0088A3;
 	margin-bottom: 0;
 }
 
 /* Culture Value Cards Styling (from www.qpaix.com) */
 .culture-value-card {
-	background: rgba(17, 26, 46, 0.85);
-	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.08);
 	border-radius: 16px;
 	padding: 28px 22px;
 	height: 100%;
 	transition: all 0.35s ease;
 	position: relative;
 	overflow: hidden;
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
 .culture-value-card::before {
@@ -547,14 +550,14 @@ header.sisf-main-header,
 }
 
 .culture-value-card h4 {
-	color: #ffffff;
+	color: var(--body-text-color, #1A1A2E);
 	font-size: 18px;
 	font-weight: 600;
 	margin-bottom: 8px;
 }
 
 .culture-value-card p {
-	color: #94a3b8;
+	color: #64748B;
 	font-size: 13.5px;
 	line-height: 1.6;
 	margin-bottom: 0;
@@ -565,7 +568,7 @@ header.sisf-main-header,
    =================================================== */
 .awesome-team-section {
 	position: relative;
-	background: #080d1a;
+	background: #F8F9FB;
 	overflow: hidden;
 	padding-top: 50px;
 	padding-bottom: 30px;
@@ -580,7 +583,7 @@ header.sisf-main-header,
 	transform: translate(-50%, -50%);
 	width: 700px;
 	height: 380px;
-	background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, rgba(8, 13, 26, 0) 70%);
+	background: radial-gradient(circle, rgba(0, 188, 212, 0.12) 0%, rgba(248, 249, 251, 0) 70%);
 	pointer-events: none;
 	z-index: 0;
 }
@@ -603,11 +606,11 @@ header.sisf-main-header,
 }
 
 .sisf-item-layout--info-side-image .sisf-m-inner {
-	background: #090D12 !important;
+	background: #FFFFFF !important;
 	padding: 35px 32px !important;
 	border-radius: 20px !important;
-	border: 1px solid rgba(255, 255, 255, 0.08) !important;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+	border: 1px solid rgba(0, 0, 0, 0.08) !important;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 	transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 	position: relative;
 	overflow: hidden;
@@ -646,7 +649,7 @@ header.sisf-main-header,
 	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%) !important;
 	position: relative;
 	overflow: hidden;
-	background: #0d1933;
+	background: #E1E1E1;
 	transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.45s ease !important;
 }
 
@@ -684,7 +687,7 @@ header.sisf-main-header,
 }
 
 .sisf-item-layout--info-side-image .team-member-content h3 {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	font-size: 24px !important;
 	font-weight: 600 !important;
 	margin-bottom: 6px !important;
@@ -692,7 +695,7 @@ header.sisf-main-header,
 }
 
 .sisf-item-layout--info-side-image .team-member-content p {
-	color: #78899E !important;
+	color: #64748B !important;
 	font-size: 13px !important;
 	font-weight: 500 !important;
 	text-transform: uppercase !important;
@@ -710,13 +713,13 @@ header.sisf-main-header,
 .sisf-item-layout--info-side-image .social-icons a {
 	width: 38px !important;
 	height: 38px !important;
-	background: rgba(255, 255, 255, 0.08) !important;
-	border: 1px solid rgba(255, 255, 255, 0.15) !important;
+	background: rgba(0, 0, 0, 0.05) !important;
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
 	border-radius: 50% !important;
 	display: inline-flex !important;
 	align-items: center !important;
 	justify-content: center !important;
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	margin: 0 !important;
 	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
@@ -800,8 +803,8 @@ header.sisf-main-header,
 	height: 340px;
 	border-radius: 6px;
 	overflow: hidden;
-	background: #0b224d;
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	background: #E1E1E1;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .expert-squad-img img {
@@ -857,18 +860,19 @@ header.sisf-main-header,
 	font-family: 'Poppins', sans-serif !important;
 }
 
-/* High Contrast Light Text Rules for Dark Backgrounds */
+/* Light-theme conversion: these sit on the page's light background now, not a dark one, so
+   the muted text needs to be a readable dark-ish grey instead of the old light-on-dark grey. */
 .our-values-section p,
 .culture-value-card p,
 .text-muted {
-	color: #cbd5e1 !important;
+	color: #64748B !important;
 }
 
 /* ==========================================================================
    Director's Message, Vision & Mission Section — Futuristic Navy Theme
    ========================================================================== */
 .director-message-section {
-	background: radial-gradient(circle at 50% 15%, #0d1738 0%, #070a24 60%, #030511 100%) !important;
+	background: radial-gradient(circle at 50% 15%, #F3F6FB 0%, #F8F9FB 60%, #FFFFFF 100%) !important;
 	position: relative !important;
 	overflow: hidden !important;
 	padding: 95px 0 105px !important;
@@ -944,7 +948,7 @@ header.sisf-main-header,
 	object-position: center 16% !important;
 	border-radius: 50% !important;
 	display: block !important;
-	background: #0d1530 !important;
+	background: #E1E1E1 !important;
 	transition: transform 0.5s ease !important;
 }
 
@@ -966,11 +970,11 @@ header.sisf-main-header,
 }
 
 .director-title {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	font-size: 28px !important;
 	font-weight: 800 !important;
 	letter-spacing: -0.3px !important;
-	background: linear-gradient(135deg, #ffffff 40%, #a5f3fc 100%) !important;
+	background: linear-gradient(135deg, #1A1A2E 40%, #0088A3 100%) !important;
 	-webkit-background-clip: text !important;
 	-webkit-text-fill-color: transparent !important;
 	font-family: 'Poppins', sans-serif !important;
@@ -986,7 +990,7 @@ header.sisf-main-header,
 }
 
 .director-text {
-	color: #cbd5e1 !important;
+	color: #475569 !important;
 	font-size: 15px !important;
 	line-height: 1.8 !important;
 	margin: 0 auto !important;
@@ -1003,15 +1007,15 @@ header.sisf-main-header,
 .vm-card {
 	position: relative !important;
 	padding: 32px 36px !important;
-	background: linear-gradient(165deg, rgba(17, 27, 56, 0.85) 0%, rgba(9, 14, 32, 0.95) 100%) !important;
-	border: 1px solid rgba(56, 189, 248, 0.18) !important;
+	background: linear-gradient(165deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.98) 100%) !important;
+	border: 1px solid rgba(0, 136, 163, 0.22) !important;
 	border-radius: 20px !important;
 	display: flex !important;
 	align-items: center !important;
 	gap: 26px !important;
 	backdrop-filter: blur(16px) !important;
 	-webkit-backdrop-filter: blur(16px) !important;
-	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45) !important;
+	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1) !important;
 	transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
 	overflow: hidden !important;
 }
@@ -1121,7 +1125,7 @@ header.sisf-main-header,
 }
 
 .vm-heading {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	font-size: 24px !important;
 	font-weight: 700 !important;
 	margin: 0 0 8px 0 !important;
@@ -1130,7 +1134,7 @@ header.sisf-main-header,
 }
 
 .vm-desc {
-	color: #94a3b8 !important;
+	color: #64748B !important;
 	font-size: 14.5px !important;
 	line-height: 1.65 !important;
 	margin: 0 !important;
@@ -1189,13 +1193,13 @@ header.sisf-main-header,
 .client-logo .comman--swiper-slider,
 .client-logo .swiper,
 .client-logo .comman-bg {
-	background: #0e0c43 !important;
-	background-color: #0e0c43 !important;
+	background: #F8F9FB !important;
+	background-color: #F8F9FB !important;
 }
 
 .client-logo.sisf-extended-grid {
-	border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+	border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 	padding: 10px 0 !important;
 }
 
@@ -1205,8 +1209,8 @@ header.sisf-main-header,
 	align-items: center !important;
 	justify-content: center !important;
 	padding: 18px 24px !important;
-	border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-	background: #0e0c43 !important;
+	border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
+	background: #F8F9FB !important;
 	height: 105px !important;
 	box-sizing: border-box !important;
 }
@@ -1483,13 +1487,13 @@ header.sisf-main-header,
    Services Internal Page Enhancement (No Top Image + Rich Animated Visuals)
    ========================================================================== */
 .offering-stat-badge {
-	background: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	padding: 12px 22px;
 	border-radius: 16px;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 	transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -1501,13 +1505,13 @@ header.sisf-main-header,
 .offering-stat-badge .stat-number h2 {
 	font-size: 32px;
 	font-weight: 700;
-	color: #ffffff;
+	color: var(--body-text-color, #1A1A2E);
 }
 
 .offering-stat-badge .stat-label h5 {
 	font-size: 13px;
 	font-weight: 500;
-	color: rgba(255, 255, 255, 0.75);
+	color: #64748B;
 	line-height: 1.3;
 }
 
@@ -1544,12 +1548,12 @@ header.sisf-main-header,
 	position: absolute;
 	border-radius: 20px;
 	overflow: hidden;
-	border: 1.5px solid rgba(255, 255, 255, 0.16);
-	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(46, 93, 234, 0.16);
+	border: 1.5px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18), 0 0 24px rgba(46, 93, 234, 0.16);
 	transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
 	            border-color 0.35s ease,
 	            box-shadow 0.35s ease;
-	background: #090e1a;
+	background: #E1E1E1;
 }
 
 .offering-card:hover {
@@ -1931,14 +1935,15 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
    QPAIX Homepage — Portfolio / Case Studies Slider — Futuristic Redesign
    ========================================================================== */
 
-/* Services section background — unified with QPAIX theme navy blue #0e0c43 */
+/* Light-theme conversion: services section background (was navy #0e0c43) */
 .our-services,
 .our-services.single-bg {
-	background: #0e0c43 !important;
-	background-image: radial-gradient(circle at 50% 20%, #15135b 0%, #0e0c43 60%, #09082b 100%) !important;
+	background: #F8F9FB !important;
+	background-image: radial-gradient(circle at 50% 20%, #FFFFFF 0%, #F8F9FB 60%, #F1F1F1 100%) !important;
 }
 
-/* User-requested: footer unified with website body blue #0e0c43 across all sections */
+/* Light-theme conversion: footer unified with the site's light theme across all sections
+   (was navy #0e0c43) */
 .footer-single,
 .main-footer,
 .sisf-main-footer,
@@ -1947,13 +1952,13 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 .sisf--sis-page-footer-top-area,
 .sisf-page-footer-middle-area,
 .sisf-page-footer-bottom-area {
-	background-color: #0e0c43 !important;
+	background-color: #F8F9FB !important;
 }
 
-/* Section wrapper with cyber atmosphere — matches QPAIX theme blue #0e0c43 */
+/* Light-theme conversion: section wrapper with cyber atmosphere (was navy #0e0c43) */
 .portfolio--list-section {
 	position: relative !important;
-	background: radial-gradient(circle at 50% 15%, #15135b 0%, #0e0c43 55%, #09082b 100%) !important;
+	background: radial-gradient(circle at 50% 15%, #FFFFFF 0%, #F8F9FB 55%, #F1F1F1 100%) !important;
 	padding: 95px 0 110px !important;
 	overflow: hidden !important;
 }
@@ -2029,7 +2034,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	font-size: 42px !important;
 	font-weight: 800 !important;
 	letter-spacing: -0.5px !important;
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	margin-bottom: 14px !important;
 	line-height: 1.25 !important;
 }
@@ -2049,7 +2054,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 }
 
 .portfolio-section-subtitle {
-	color: #94a3b8 !important;
+	color: #64748B !important;
 	font-size: 15.5px !important;
 	max-width: 660px !important;
 	margin: 0 auto 45px !important;
@@ -2069,15 +2074,15 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 .qpaix-project-card {
 	position: relative !important;
 	width: 100% !important;
-	background: linear-gradient(165deg, rgba(17, 27, 56, 0.82) 0%, rgba(9, 14, 32, 0.94) 100%) !important;
+	background: linear-gradient(165deg, #FFFFFF 0%, #F8F9FB 100%) !important;
 	backdrop-filter: blur(16px) !important;
 	-webkit-backdrop-filter: blur(16px) !important;
-	border: 1px solid rgba(255, 255, 255, 0.08) !important;
+	border: 1px solid rgba(0, 0, 0, 0.08) !important;
 	border-radius: 20px !important;
 	overflow: hidden !important;
 	display: flex !important;
 	flex-direction: column !important;
-	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45) !important;
+	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1) !important;
 	transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
 }
 
@@ -2268,17 +2273,17 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 }
 
 .project-card-title a {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	text-decoration: none !important;
 	transition: color 0.3s ease !important;
 }
 
 .qpaix-project-card:hover .project-card-title a {
-	color: #38bdf8 !important;
+	color: #0088A3 !important;
 }
 
 .project-card-desc {
-	color: #94a3b8 !important;
+	color: #64748B !important;
 	font-size: 13px !important;
 	line-height: 1.55 !important;
 	margin: 0 !important;
@@ -2298,9 +2303,9 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 
 .qpaix-card-feat-tag {
 	font-size: 11px !important;
-	color: #cbd5e1 !important;
-	background: rgba(255, 255, 255, 0.04) !important;
-	border: 1px solid rgba(255, 255, 255, 0.08) !important;
+	color: #475569 !important;
+	background: rgba(0, 0, 0, 0.04) !important;
+	border: 1px solid rgba(0, 0, 0, 0.08) !important;
 	padding: 3px 9px !important;
 	border-radius: 6px !important;
 	white-space: nowrap !important;
@@ -2316,7 +2321,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	align-items: center !important;
 	justify-content: space-between !important;
 	padding-top: 14px !important;
-	border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+	border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 .project-card-cta {
@@ -2406,7 +2411,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 .portfolio-nav-controls .swiper-pagination-bullet {
 	width: 8px !important;
 	height: 8px !important;
-	background: rgba(255, 255, 255, 0.25) !important;
+	background: rgba(0, 0, 0, 0.18) !important;
 	border-radius: 50% !important;
 	opacity: 1 !important;
 	transition: all 0.35s ease !important;
@@ -2445,13 +2450,13 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 
 .qpaix-product-card {
 	position: relative;
-	background: linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(13, 22, 41, 0.85) 60%, rgba(9, 14, 28, 0.95) 100%);
+	background: linear-gradient(160deg, #FFFFFF 0%, #F8F9FB 60%, #F1F1F1 100%);
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
-	border: 1px solid rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 22px;
 	padding: 24px;
-	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -2558,7 +2563,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 	font-size: 13px;
 	font-weight: 700;
-	color: rgba(255, 255, 255, 0.28);
+	color: rgba(0, 0, 0, 0.2);
 	letter-spacing: 0.05em;
 }
 
@@ -2643,18 +2648,18 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 }
 
 .product-card-title-link {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	text-decoration: none !important;
 	transition: color 0.3s ease;
 }
 
 .product-card-title-link:hover,
 .qpaix-product-card:hover .product-card-title-link {
-	color: #38bdf8 !important;
+	color: #0088A3 !important;
 }
 
 .product-card-tagline {
-	color: #38bdf8;
+	color: #0088A3;
 	font-size: 13.5px;
 	font-weight: 600;
 	line-height: 1.45;
@@ -2665,7 +2670,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 }
 
 .product-card-desc {
-	color: #94a3b8;
+	color: #64748B;
 	font-size: 13.5px;
 	line-height: 1.6;
 	margin: 0;
@@ -2687,12 +2692,12 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	background: rgba(255, 255, 255, 0.04);
-	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(0, 0, 0, 0.08);
 	border-radius: 8px;
 	padding: 6px 10px;
 	font-size: 12px;
-	color: #cbd5e1;
+	color: #475569;
 	line-height: 1.3;
 	transition: background 0.25s ease, border-color 0.25s ease;
 }
@@ -2710,14 +2715,14 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 }
 
 .qpaix-product-card:hover .product-mini-chip {
-	background: rgba(56, 189, 248, 0.06);
-	border-color: rgba(56, 189, 248, 0.2);
-	color: #f1f5f9;
+	background: rgba(56, 189, 248, 0.08);
+	border-color: rgba(56, 189, 248, 0.25);
+	color: #1A1A2E;
 }
 
 /* Card Footer & Modern Button */
 .product-card-footer {
-	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .product-card-cta-btn {
@@ -2799,8 +2804,8 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 .sisf-sis-info-cards.sisf-link-overlay {
 	position: relative;
 	padding: 34px 28px 28px 28px !important;
-	border: 1px solid rgba(255, 255, 255, 0.12) !important;
-	background: linear-gradient(165deg, rgba(255, 255, 255, 0.05) 0%, rgba(13, 22, 41, 0.88) 100%) !important;
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
+	background: linear-gradient(165deg, #FFFFFF 0%, #F8F9FB 100%) !important;
 	backdrop-filter: blur(14px);
 	-webkit-backdrop-filter: blur(14px);
 	border-radius: 18px !important;
@@ -2809,7 +2814,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	justify-content: space-between !important;
 	height: 100% !important;
 	width: 100%;
-	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
 	overflow: hidden;
 	transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
 	            border-color 0.4s ease,
@@ -2823,7 +2828,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	opacity: 1 !important;
 	visibility: visible !important;
 	transform: translateY(0) !important;
-	color: #cbd5e1 !important;
+	color: #64748B !important;
 	font-size: 14.5px !important;
 	line-height: 1.65 !important;
 	margin-top: 10px !important;
@@ -2853,12 +2858,12 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	font-weight: 700 !important;
 	line-height: 1.35 !important;
 	margin-bottom: 12px !important;
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	transition: color 0.3s ease;
 }
 
 .sisf-sis-info-cards.sisf-link-overlay h5.sisf-m-title a {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	text-decoration: none !important;
 	transition: color 0.3s ease;
 }
@@ -2927,8 +2932,8 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.08);
-	border: 1px solid rgba(255, 255, 255, 0.15);
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 	text-decoration: none;
 }
@@ -2936,6 +2941,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 .sisf-sis-info-cards.sisf-link-overlay:hover .sisf--button .sisf-sis-button {
 	background: #2E5DEA !important;
 	border-color: #38bdf8 !important;
+	color: #FFFFFF !important;
 	transform: translate(2px, -2px) rotate(-45deg);
 	box-shadow: 0 0 15px rgba(56, 189, 248, 0.5) !important;
 }
@@ -3141,7 +3147,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	padding: 28px;
 }
 #qpaix-career-apply-form h4 {
-	color: #ffffff;
+	color: var(--body-text-color, #1A1A2E);
 	font-size: 20px;
 	font-weight: 700;
 }
@@ -3345,18 +3351,18 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 .testimonial-section.our-testimonials {
 	padding: 100px 0 !important;
 	position: relative !important;
-	background: radial-gradient(circle at 80% 20%, #15135b 0%, #0e0c43 60%, #09082b 100%) !important;
+	background: radial-gradient(circle at 80% 20%, #FFFFFF 0%, #F8F9FB 60%, #F1F1F1 100%) !important;
 }
 
 .sisf-sis-our-testimonial {
 	padding: 30px 32px !important;
 	width: 100% !important;
-	background: rgba(9, 21, 51, 0.72) !important;
+	background: rgba(255, 255, 255, 0.9) !important;
 	backdrop-filter: blur(16px) !important;
 	-webkit-backdrop-filter: blur(16px) !important;
-	border: 1px solid rgba(0, 229, 255, 0.2) !important;
+	border: 1px solid rgba(0, 136, 163, 0.22) !important;
 	border-radius: 22px !important;
-	box-shadow: 0 12px 35px rgba(2, 6, 23, 0.5) !important;
+	box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1) !important;
 	margin-bottom: 24px !important;
 	transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease !important;
 }
@@ -3370,19 +3376,19 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 .sisf-sis-our-testimonial .sisf-e-text {
 	font-size: 15.5px !important;
 	line-height: 1.7 !important;
-	color: #cbd5e1 !important;
+	color: #475569 !important;
 	margin-bottom: 20px !important;
 }
 
 .sisf-sis-our-testimonial .sisf-e-client-name {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	font-weight: 600 !important;
 	font-size: 17px !important;
 	letter-spacing: 0.3px !important;
 }
 
 .sisf-sis-our-testimonial .sisf-e-author-job {
-	color: #00e5ff !important;
+	color: #0088A3 !important;
 	font-size: 13.5px !important;
 	font-weight: 500 !important;
 }
@@ -3414,8 +3420,8 @@ a.btn-default.btn-outline-white,
 a.btn-default[style*="background:transparent"] {
 	background: transparent !important;
 	background-color: transparent !important;
-	color: #ffffff !important;
-	border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+	color: var(--body-text-color, #1A1A2E) !important;
+	border: 1.5px solid rgba(0, 0, 0, 0.35) !important;
 	border-radius: 30px !important;
 	transition: all 0.3s ease-in-out !important;
 }
@@ -3423,23 +3429,23 @@ a.btn-default[style*="background:transparent"] {
 .btn-default.btn-outline-white span,
 a.btn-default.btn-outline-white span,
 a.btn-default[style*="background:transparent"] span {
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	transition: color 0.3s ease-in-out !important;
 }
 
-/* Global button hover fix: Whenever any .btn-default turns white on hover,
-   text MUST be deep navy (#0e0c43) so it is 100% sharp and readable */
+/* Global button hover fix: Whenever any .btn-default turns to the brand blue on hover,
+   text MUST be white so it is 100% sharp and readable */
 .btn-default:hover,
 a.btn-default:hover,
 button.btn-default:hover,
 .btn-default.btn-outline-white:hover,
 a.btn-default.btn-outline-white:hover,
 a.btn-default[style*="background:transparent"]:hover {
-	background: #ffffff !important;
-	background-color: #ffffff !important;
-	border-color: #ffffff !important;
-	color: #0e0c43 !important;
-	-webkit-text-fill-color: #0e0c43 !important;
+	background: var(--main-color, #2E5DEA) !important;
+	background-color: var(--main-color, #2E5DEA) !important;
+	border-color: var(--main-color, #2E5DEA) !important;
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
 }
 
 .btn-default:hover span,
@@ -3448,8 +3454,8 @@ button.btn-default:hover span,
 .btn-default.btn-outline-white:hover span,
 a.btn-default.btn-outline-white:hover span,
 a.btn-default[style*="background:transparent"]:hover span {
-	color: #0e0c43 !important;
-	-webkit-text-fill-color: #0e0c43 !important;
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
 	font-weight: 700 !important;
 }
 
@@ -3598,7 +3604,7 @@ a.btn-default[style*="background:transparent"]:hover span {
 }
 
 .qpaix-section-subtitle {
-	color: #94a3b8;
+	color: #64748B;
 	font-size: 15px;
 	line-height: 1.6;
 	max-width: 680px;
@@ -3626,13 +3632,13 @@ a.btn-default[style*="background:transparent"]:hover span {
 }
 
 .q-use-cases-tabs .nav-tabs .nav-link {
-	border: 1px solid rgba(255, 255, 255, 0.15) !important;
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
 	font-size: 1.05rem;
 	font-weight: 500;
 	border-radius: 30px !important;
 	padding: 10px 24px !important;
-	color: #cbd5e1 !important;
-	background: rgba(255, 255, 255, 0.05) !important;
+	color: #475569 !important;
+	background: rgba(0, 0, 0, 0.03) !important;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 	transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3664,11 +3670,11 @@ a.btn-default[style*="background:transparent"]:hover span {
 	align-items: flex-start;
 	padding: 22px 26px;
 	border-radius: 16px;
-	background: linear-gradient(135deg, rgba(13, 31, 74, 0.75) 0%, rgba(8, 20, 48, 0.85) 100%);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FB 100%);
+	border: 1px solid rgba(0, 0, 0, 0.08);
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 	transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -3716,7 +3722,7 @@ a.btn-default[style*="background:transparent"]:hover span {
 .shallow-card .card_title {
 	font-size: 1.25rem;
 	font-weight: 700;
-	color: #ffffff;
+	color: var(--body-text-color, #1A1A2E);
 	margin-bottom: 6px;
 	line-height: 1.3;
 }
@@ -3724,7 +3730,7 @@ a.btn-default[style*="background:transparent"]:hover span {
 .shallow-card .description {
 	font-size: 0.95rem;
 	line-height: 1.65;
-	color: #cbd5e1;
+	color: #64748B;
 	margin-bottom: 0;
 }
 
@@ -3742,7 +3748,7 @@ a.btn-default[style*="background:transparent"]:hover span {
 	left: 0;
 	width: 250px;
 	height: 250px;
-	background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1.5px, transparent 1.5px);
+	background-image: radial-gradient(rgba(0, 0, 0, 0.18) 1.5px, transparent 1.5px);
 	background-size: 16px 16px;
 	z-index: 1;
 	pointer-events: none;
@@ -3757,8 +3763,8 @@ a.btn-default[style*="background:transparent"]:hover span {
 	max-width: 100%;
 	border-radius: 140px 30px 140px 30px;
 	object-fit: cover;
-	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
-	border: 2px solid rgba(255, 255, 255, 0.12);
+	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+	border: 2px solid rgba(0, 0, 0, 0.1);
 	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -3793,8 +3799,8 @@ a.btn-default[style*="background:transparent"]:hover span {
    Section 2: Core Engineering Features & Capabilities Cards
    ========================================================================== */
 .qpaix-feature-card {
-	background: linear-gradient(180deg, rgba(8, 23, 54, 0.85) 0%, rgba(10, 20, 45, 0.95) 100%);
-	border: 1px solid rgba(255, 255, 255, 0.09);
+	background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FB 100%);
+	border: 1px solid rgba(0, 0, 0, 0.08);
 	border-radius: 18px;
 	padding: 30px 26px;
 	display: flex;
@@ -3848,14 +3854,14 @@ a.btn-default[style*="background:transparent"]:hover span {
 }
 
 .feature-title {
-	color: #ffffff;
+	color: var(--body-text-color, #1A1A2E);
 	font-size: 19px;
 	font-weight: 700;
 	line-height: 1.35;
 }
 
 .feature-desc {
-	color: #94a3b8;
+	color: #64748B;
 	font-size: 14px;
 	line-height: 1.65;
 	margin-bottom: 0;
@@ -3865,7 +3871,7 @@ a.btn-default[style*="background:transparent"]:hover span {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 6px;
-	border-top: 1px solid rgba(255, 255, 255, 0.06);
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .feature-chip {
@@ -3921,23 +3927,23 @@ a.btn-default[style*="background:transparent"]:hover span {
 }
 
 .qpaix-feature-card {
-	background: rgba(9, 13, 22, 0.85) !important;
+	background: rgba(255, 255, 255, 0.9) !important;
 	backdrop-filter: blur(14px);
 	-webkit-backdrop-filter: blur(14px);
-	border: 1px solid rgba(0, 229, 255, 0.18) !important;
+	border: 1px solid rgba(0, 136, 163, 0.2) !important;
 	border-radius: 16px !important;
 	padding: 28px 24px !important;
 	display: flex !important;
 	flex-direction: column !important;
 	transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
 }
 
 .qpaix-feature-card:hover {
 	transform: translateY(-6px) !important;
-	background: rgba(13, 22, 43, 0.95) !important;
+	background: rgba(255, 255, 255, 0.98) !important;
 	border-color: rgba(0, 229, 255, 0.5) !important;
-	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 229, 255, 0.18) !important;
+	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15), 0 0 24px rgba(0, 229, 255, 0.18) !important;
 }
 
 .qpaix-feature-card .feature-icon-box {
@@ -3964,14 +3970,14 @@ a.btn-default[style*="background:transparent"]:hover span {
 .qpaix-feature-card .feature-title {
 	font-size: 1.15rem !important;
 	font-weight: 600 !important;
-	color: #ffffff !important;
+	color: var(--body-text-color, #1A1A2E) !important;
 	letter-spacing: -0.2px !important;
 }
 
 .qpaix-feature-card .feature-desc {
 	font-size: 0.9rem !important;
 	line-height: 1.6 !important;
-	color: #94a3b8 !important;
+	color: #64748B !important;
 }
 
 .qpaix-feature-card .feature-chip {
