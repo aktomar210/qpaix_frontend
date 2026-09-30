@@ -79,7 +79,7 @@
 	const initialMenu2Items = $('#menu2 > li').toArray();
 
 	const handleMobileMenus = () => {
-        const isMobile = $window.width() <= 768;
+        const isMobile = $window.width() <= 991;
         const hasSlickNav = $(".slicknav_nav").length > 0;
 
         if (isMobile && !hasSlickNav) {
