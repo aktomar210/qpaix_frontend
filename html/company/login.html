@@ -15,6 +15,55 @@
       <link href="/css/all.css" rel="stylesheet" media="screen">
       <link href="/css/custom.css" rel="stylesheet" media="screen">
       <link href="/css/qpaix-brand.css" rel="stylesheet" media="screen">
+      <style>
+        /* Same visual language as cms.js's own showCmsAlert()/#qpaix-cms-alert-overlay in
+           cms-admin.css — this page never loads cms.js (it's pre-login, no admin bar/edit-mode
+           logic needed here), so the popup is reproduced standalone rather than pulling in the
+           whole CMS bundle just for one alert box. */
+        #qpaix-login-alert-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 10000000;
+          background: rgba(6, 12, 26, 0.65);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.18s ease;
+          font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+        #qpaix-login-alert-overlay.qpaix-alert-visible { opacity: 1; }
+        #qpaix-login-alert-overlay.qpaix-alert-visible .qpaix-login-alert-box {
+          transform: scale(1) translateY(0);
+        }
+        .qpaix-login-alert-box {
+          background: #ffffff;
+          border-radius: 16px;
+          box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0,0,0,0.06);
+          padding: 36px 40px 30px;
+          min-width: 320px;
+          max-width: 420px;
+          width: 90vw;
+          text-align: center;
+          transform: scale(0.92) translateY(-16px);
+          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .qpaix-login-alert-icon {
+          font-size: 46px;
+          display: block;
+          margin: 0 auto 16px;
+          color: #16a34a;
+        }
+        .qpaix-login-alert-message {
+          font-size: 15px;
+          color: #1e2d45;
+          font-weight: 500;
+          line-height: 1.55;
+          margin-bottom: 8px;
+        }
+      </style>
    </head>
    <body>
       <div style="min-height:100vh; display:flex; align-items:center; justify-content:center; background:#f4f6fb;">
@@ -55,6 +104,19 @@
           icon.classList.toggle('fa-eye-slash', !showing);
         });
 
+        function showLoginSuccessAlert(message) {
+          const overlay = document.createElement('div');
+          overlay.id = 'qpaix-login-alert-overlay';
+          overlay.innerHTML = `
+            <div class="qpaix-login-alert-box" role="alertdialog" aria-modal="true" aria-label="Success">
+              <i class="fa-solid fa-circle-check qpaix-login-alert-icon"></i>
+              <div class="qpaix-login-alert-message">${message}</div>
+            </div>
+          `;
+          document.body.appendChild(overlay);
+          requestAnimationFrame(() => overlay.classList.add('qpaix-alert-visible'));
+        }
+
         document.getElementById('qpaix-login-form').addEventListener('submit', async (e) => {
           e.preventDefault();
           const statusEl = document.getElementById('qpaix-login-status');
@@ -77,10 +139,9 @@
             const data = await res.json();
             if (res.ok) {
               loginSucceeded = true;
-              statusEl.textContent = 'Login successful! Redirecting...';
-              statusEl.style.color = '#2e7d32';
               submitBtn.textContent = 'Redirecting...';
-              setTimeout(() => { window.location.href = '/'; }, 700);
+              showLoginSuccessAlert('Login successful! Redirecting...');
+              setTimeout(() => { window.location.href = '/'; }, 900);
             } else {
               statusEl.textContent = data.error || 'Login failed — check your email and password.';
               statusEl.style.color = '#c62828';
