@@ -1860,6 +1860,14 @@ header.main-header .header-sticky.active {
     background-size: 100% auto;
 }
 
+/* hm5-hero_bg-1.png is a genuinely dark blue/purple gradient photo, untouched by the CSS-only
+   dark->light color flip. Most hero copy already carries an explicit .text-white class, but the
+   h1 headline on slides 2 and 3 (index.html) does not, so it inherited the page's new dark
+   --body-text-color and became invisible against this dark image. Force it back to white. */
+.sisf-it-company .hero-content .section-title h1 {
+	color: #FFFFFF;
+}
+
 .app-showcase-page .hero-slider-layout {
     background-image: url("../images/app_showcase_hero_bg1.png");
     background-size: cover;
@@ -3535,6 +3543,16 @@ header.main-header .header-sticky.active {
 	z-index: 2;
 }
 
+/* tesimonials_bg1.png is a genuinely dark photo (plus the hardcoded dark rgba overlay below),
+   untouched by the CSS-only dark->light color flip — the testimonial copy and section title
+   inside inherited the page's new dark --body-text-color and became invisible. Force this
+   section's text back to white/light since it still sits on a genuinely dark background. */
+.sisf-background-image .sisf-e-text,
+.sisf-background-image .sisf-e-client-name,
+.sisf-background-image .sisf-sis-section-title .sisf-m-title {
+	color: #FFFFFF;
+}
+
 .sisf-background-image .testimonial-slide {
 	padding: 50px;
 	background-color: rgba(28, 29, 32, 0.80);
@@ -4740,6 +4758,22 @@ header.main-header .header-sticky.active {
     background-size: cover;
 }
 
+/* .single-bg's own background-image (empowering_bg-1.png) is a dark purple/navy gradient photo,
+   untouched by the CSS-only dark->light color flip (it's an image asset, not a hex value) — its
+   text was inheriting body's new dark --body-text-color and became invisible dark-on-dark.
+   Force this section's text back to white/light since it still sits on a genuinely dark image. */
+.about-us-section.single-bg,
+.about-us-section.single-bg .sisf-m-subtitle,
+.about-us-section.single-bg .sisf-m-title,
+.about-us-section.single-bg .sisf-m-text,
+.about-us-section.single-bg p,
+.about-us-section.single-bg .counter-title,
+.about-us-section.single-bg .counter-content,
+.about-us-section.single-bg .counter,
+.about-us-section.single-bg .heading-title {
+	color: #FFFFFF;
+}
+
 .about-counter .counter-title span {
     font-size: 125px;
     font-weight: 700;
@@ -5581,6 +5615,14 @@ header.main-header .header-sticky.active {
 	margin-bottom: 70px;
 }
 
+/* start_your_img.png is a genuinely dark blue gradient photo (its own child
+   .start-your-experience-part also carries a hardcoded dark overlay), untouched by the
+   CSS-only dark->light color flip — the section title inherited the page's new dark
+   --body-text-color and became invisible. Force it back to white/light. */
+.start-your-experience-section .sisf-m-title {
+	color: #FFFFFF;
+}
+
 .start-your-experience-part {
 	padding: 150px 0;
 	position: relative;
@@ -5596,6 +5638,15 @@ header.main-header .header-sticky.active {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+/* get-in-touch_bg.png is a genuinely dark purple/navy glow image, untouched by the CSS-only
+   dark->light color flip — its heading/copy inherited the page's new dark --body-text-color and
+   became invisible. Force this section's own text white regardless of the site-wide flip. */
+.get-in-touch-section .sisf-m-title,
+.get-in-touch-section .sisf-m-text,
+.get-in-touch-section .sisf-m-text p {
+	color: #FFFFFF;
 }
 
 .form-section .form-label {
@@ -6047,11 +6098,15 @@ select.form-control {
 }
 
 .sisf-page-title .sisf-m-title {
-	color: var(--body-text-color);
+	/* This title always sits over a real dark banner photo (.sisf-banner .banner-img), on every
+	   inner page — it never inherited the page's own light background, so it needs to stay white/
+	   bold regardless of the site-wide dark->light text-color flip, or it's unreadable against
+	   the photo behind it. */
+	color: #FFFFFF !important;
+	font-weight: 700;
 	text-shadow: 0px 4px 40px rgba(0, 0, 0, 0.30);
     font-size: 46px;
     font-style: normal;
-    font-weight: 500;
     line-height: normal;
     text-transform: none;
 	letter-spacing: 0.1px;
@@ -9671,8 +9726,13 @@ select {
 }
 
 .sisf-sis-page-footer-top-area {
+	/* footer-top.png is a genuinely dark navy decorative image (confirmed by direct inspection —
+	   a prior audit pass mistakenly called it "mostly transparent"), so it was completely covering
+	   this element's own light background-color and putting the "Get in Touch" heading back on a
+	   dark background with no matching text-color override. Removed the image so the light
+	   background-color actually shows through; the heading text-color fix below (.sisf-block-
+	   heading h2) is no longer strictly required for contrast but is kept for clarity/explicitness. */
 	background-color: #F8F9FB;
-    background-image: url("../images/footer-top.png");
 	background-size: cover;
     background-position: top left;
 	background-repeat: no-repeat;
@@ -9701,6 +9761,7 @@ select {
     text-transform: capitalize;
 	line-height: normal;
     letter-spacing: 1.8px;
+	color: var(--body-text-color);
 }
 
 .sisf-block-heading h2 strong {
