@@ -10,7 +10,7 @@ import * as esbuild from 'esbuild';
 // Backend origin — single named constant, toggle this one line to point at the deployed
 // backend instead of local dev. QPAIX's Spring Boot backend runs on port 8127 (not ind-fab's
 // 8126) so both can run side by side on the same machine without a port clash.
-const BACKEND_ORIGIN = 'http://localhost:8127';
+const BACKEND_ORIGIN = 'https://qpaix-website-backend.onrender.com';
 const backendUrl = new URL(BACKEND_ORIGIN);
 const backendClient = backendUrl.protocol === 'https:' ? https : http;
 
