@@ -26,32 +26,15 @@
 		hidePreloader();
 	};
 
-	// If the user already visited any page in this session, hide almost instantaneously (60ms)
-	var isSubsequentNav = false;
-	try {
-		isSubsequentNav = !!sessionStorage.getItem("qpaix_visited");
-	} catch (e) {}
-
-	if (isSubsequentNav) {
-		setTimeout(hidePreloader, 60);
-	} else {
-		// First load in session: dismiss as soon as DOM is ready, with smooth 180ms transition
-		if (document.readyState === "complete" || document.readyState === "interactive") {
-			setTimeout(hidePreloader, 100);
-		} else {
-			document.addEventListener("DOMContentLoaded", function () {
-				setTimeout(hidePreloader, 180);
-			});
-		}
-	}
-
-	// Always guarantee the loader never blocks the user longer than 400ms under any circumstance
+	// Allow cms.js to hydrate CMS images and content before dismissing preloader
+	// Failsafe timer guarantees preloader never blocks the user longer than 900ms
 	setTimeout(function () {
 		hidePreloader();
-	}, 400);
+	}, 900);
 
 	$(window).on("load", function () {
-		hidePreloader();
+		// If window loaded, dismiss gracefully after brief grace period if cms already notified
+		setTimeout(hidePreloader, 350);
 	});
 	
 	/* Sticky Header JS */	

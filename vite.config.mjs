@@ -262,6 +262,16 @@ export default defineConfig({
 
   plugins: [
     vercelRewritesDev(),
+    {
+      name: 'qpaix-anti-flash-inject',
+      transformIndexHtml(html) {
+        if (html.includes('qpaix-anti-flash.js')) return html;
+        return html.replace(
+          '</head>',
+          '    <script src="/js/qpaix-anti-flash.js"></script>\n  </head>'
+        );
+      },
+    },
 
     // ─── PREVIEW: Clean URLs + API proxy ─────────────────────────────────────
     {

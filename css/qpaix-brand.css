@@ -20,6 +20,35 @@
 	visibility: visible;
 }
 
+/* Zero-flash CMS image overrides */
+[data-cms].qpaix-cms-loaded {
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+
+/* Premium Blur / Smooth Crossfade for CMS images */
+img[data-cms],
+[data-cms] img,
+.banner-img img,
+.sisf-banner img,
+.media-image img,
+.sisf-e-media-image img {
+	transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease !important;
+	will-change: filter, opacity;
+}
+
+img.qpaix-img-blur-swap,
+div.qpaix-img-blur-swap {
+	filter: blur(14px) brightness(0.92) !important;
+	opacity: 0.65 !important;
+}
+
+img.qpaix-img-ready,
+div.qpaix-img-ready {
+	filter: blur(0px) brightness(1) !important;
+	opacity: 1 !important;
+}
+
 /* The template's nav relies on a mega-menu wrapper structure (chevron icons, nested spans)
    for inter-item spacing that our simplified single-level menu doesn't have — without this,
    adjacent top-level items (e.g. "Home"/"About Us") render with zero gap between them. */
@@ -343,6 +372,47 @@ header.sisf-main-header,
 	.sisf-page-title h1.entry-title {
 		font-size: 36px !important;
 	}
+}
+
+/* Discover Our Services heading: ensure dark font and full opacity */
+.our-services-section .section-title h2,
+.our-services-section .sisf-m-title,
+.our-services-section .sisf-m-title--scroll,
+[data-cms="services-page-heading"],
+[data-cms="services-page-heading"] div,
+[data-cms="services-page-heading"] span {
+	color: #0F172A !important;
+	opacity: 1 !important;
+}
+
+[data-cms="services-page-heading"] .sisf-e--colored,
+[data-cms="services-page-heading"] .sisf-e--colored div {
+	color: var(--main-color, #2E5DEA) !important;
+	opacity: 1 !important;
+}
+
+/* Latest Blog / News Cards (About Page) */
+.letest-blog-item .blog-title-link,
+.letest-blog--item .blog-title-link,
+.letest-blog-item .blog-title a,
+.letest-blog--item .blog-title a {
+	color: #0F172A !important;
+	font-weight: 600 !important;
+	text-decoration: none !important;
+}
+
+.letest-blog-item .blog-title-link:hover,
+.letest-blog--item .blog-title-link:hover,
+.letest-blog-item .blog-title a:hover,
+.letest-blog--item .blog-title a:hover {
+	color: #16A34A !important;
+}
+
+.letest-blog--item .sisf-e-info-date a,
+.letest-blog--item .sisf-e-info-item a,
+.letest-blog--item .sisf-saperator {
+	color: #475569 !important;
+	font-weight: 600 !important;
 }
 
 /* Light-theme conversion: dark sections recolor to match site's light theme (was navy #0e0c43) */
@@ -2030,27 +2100,30 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 }
 
 .portfolio--list-section .sisf-sis-section-title h2.qpaix-gradient-heading,
-.portfolio--list-section .sisf-sis-section-title h2 {
+.portfolio--list-section .sisf-sis-section-title h2,
+[data-cms="services-page-products-heading"],
+[data-cms="services-page-products-heading"] div,
+[data-cms="services-page-products-heading"] span {
 	font-size: 42px !important;
 	font-weight: 800 !important;
 	letter-spacing: -0.5px !important;
-	color: var(--body-text-color, #1A1A2E) !important;
+	color: #0F172A !important;
 	margin-bottom: 14px !important;
 	line-height: 1.25 !important;
+	opacity: 1 !important;
 }
 
-.portfolio--list-section .qpaix-cyan-text {
-	/* User-requested: the gradient-clipped-text effect this previously used
-	   (background-clip:text + transparent fill) rendered completely invisible in some
-	   environments (confirmed via headless Chrome — computed styles showed the gradient was
-	   present, but zero pixels actually painted). Solid color + bold is more robust and is
-	   literally what was asked for: match the accent color used elsewhere on this page, bold. */
+.portfolio--list-section .qpaix-cyan-text,
+[data-cms="services-page-products-heading"] .qpaix-cyan-text,
+[data-cms="services-page-products-heading"] .qpaix-cyan-text div,
+[data-cms="services-page-products-heading"] .qpaix-cyan-text span {
 	background: none !important;
 	-webkit-background-clip: unset !important;
 	-webkit-text-fill-color: unset !important;
 	color: #00bcd4 !important;
 	font-weight: 800 !important;
 	text-shadow: 0 0 30px rgba(56, 189, 248, 0.25) !important;
+	opacity: 1 !important;
 }
 
 .portfolio-section-subtitle {

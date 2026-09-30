@@ -222,14 +222,77 @@
     }
   }
 
+  function applyCmsImageWithBlur(imgEl, newUrl) {
+    if (!imgEl || !newUrl) return;
+    const currentSrc = imgEl.getAttribute('src');
+    if (imgEl.src === newUrl || currentSrc === newUrl) {
+      imgEl.classList.remove('qpaix-img-blur-swap');
+      imgEl.classList.add('qpaix-img-ready');
+      imgEl.classList.add('qpaix-cms-loaded');
+      return;
+    }
+
+    imgEl.classList.add('qpaix-img-blur-swap');
+
+    const loader = new Image();
+    loader.onload = () => {
+      imgEl.src = newUrl;
+      requestAnimationFrame(() => {
+        imgEl.classList.remove('qpaix-img-blur-swap');
+        imgEl.classList.add('qpaix-img-ready');
+        imgEl.classList.add('qpaix-cms-loaded');
+      });
+    };
+    loader.onerror = () => {
+      imgEl.src = newUrl;
+      imgEl.classList.remove('qpaix-img-blur-swap');
+      imgEl.classList.add('qpaix-img-ready');
+      imgEl.classList.add('qpaix-cms-loaded');
+    };
+    loader.src = newUrl;
+  }
+
+  function applyCmsBgWithBlur(el, newUrl) {
+    if (!el || !newUrl) return;
+    const currentBg = el.style.backgroundImage;
+    if (currentBg && currentBg.includes(newUrl)) {
+      el.classList.remove('qpaix-img-blur-swap');
+      el.classList.add('qpaix-img-ready');
+      el.classList.add('qpaix-cms-loaded');
+      return;
+    }
+
+    el.classList.add('qpaix-img-blur-swap');
+    const loader = new Image();
+    loader.onload = () => {
+      el.style.backgroundImage = `url("${newUrl}")`;
+      requestAnimationFrame(() => {
+        el.classList.remove('qpaix-img-blur-swap');
+        el.classList.add('qpaix-img-ready');
+        el.classList.add('qpaix-cms-loaded');
+      });
+    };
+    loader.onerror = () => {
+      el.style.backgroundImage = `url("${newUrl}")`;
+      el.classList.remove('qpaix-img-blur-swap');
+      el.classList.add('qpaix-img-ready');
+      el.classList.add('qpaix-cms-loaded');
+    };
+    loader.src = newUrl;
+  }
+
   function applyPageElements() {
     document.querySelectorAll('[data-cms]').forEach((el) => {
       const id = el.getAttribute('data-cms');
       const row = state.pageElements[id];
       if (!row || !row.content_value) return;
 
-      if (row.content_type === 'image' && el.tagName === 'IMG') {
-        el.src = row.content_value;
+      if (row.content_type === 'image') {
+        if (el.tagName === 'IMG') {
+          applyCmsImageWithBlur(el, row.content_value);
+        } else {
+          applyCmsBgWithBlur(el, row.content_value);
+        }
       } else if (row.content_type === 'link' && el.tagName === 'A') {
         el.href = row.content_value;
       } else if (row.content_type === 'html' || row.content_type === 'text') {
@@ -2077,6 +2140,7 @@
             const dataCms = target.getAttribute('data-cms');
             if (dataCms) {
               queueChange(dataCms, 'image', data.url);
+              target.classList.add('qpaix-cms-loaded');
             }
           }
           status.textContent = 'Saved successfully!';
@@ -2287,10 +2351,37 @@
       await recordHistory(changes);
       state.pendingChanges = {};
 
-      // Invalidate local storage cache so refreshed pages get latest saved DB changes immediately
+      // Immediately persist saved changes to localStorage and state so reloads render fresh data with ZERO flash
       try {
-        localStorage.removeItem(`qpaix_page_elements_${PAGE_SLUG}`);
-        localStorage.removeItem(`qpaix_page_elements_${SHARED_HEADER_SLUG}`);
+        [PAGE_SLUG, SHARED_HEADER_SLUG].forEach((slug) => {
+          const key = `qpaix_page_elements_${slug}`;
+          let rows = [];
+          try {
+            const raw = localStorage.getItem(key);
+            if (raw) rows = JSON.parse(raw);
+          } catch (e) {}
+          if (!Array.isArray(rows)) rows = [];
+
+          changes.forEach((ch) => {
+            const belongsTo = pageSlugForElement(ch.element_id);
+            if (belongsTo === slug) {
+              const updatedItem = {
+                page_slug: slug,
+                element_id: ch.element_id,
+                content_type: ch.content_type,
+                content_value: ch.content_value,
+              };
+              const idx = rows.findIndex((r) => r.element_id === ch.element_id);
+              if (idx >= 0) {
+                rows[idx] = { ...rows[idx], ...updatedItem };
+              } else {
+                rows.push(updatedItem);
+              }
+              state.pageElements[ch.element_id] = updatedItem;
+            }
+          });
+          localStorage.setItem(key, JSON.stringify(rows));
+        });
       } catch (e) {}
     } catch (e) {
       console.error('[cms] Save failed', e);
