@@ -2,9 +2,43 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://qpaix-website-backend.onrender.com/api/:path*"
-    }
+    { "source": "/api/:path*", "destination": "https://qpaix-website-backend.onrender.com/api/:path*" },
+
+    { "source": "/services/software-development", "destination": "/html/services/software-development.html" },
+    { "source": "/services/enterprise-ai-solutions", "destination": "/html/services/enterprise-ai-solutions.html" },
+    { "source": "/services/data-analytics", "destination": "/html/services/data-analytics.html" },
+    { "source": "/services/iot-driven-solutions", "destination": "/html/services/iot-driven-solutions.html" },
+    { "source": "/services/cloud-platform-services", "destination": "/html/services/cloud-platform-services.html" },
+    { "source": "/services/drone-services", "destination": "/html/services/drone-services.html" },
+
+    { "source": "/products/gyan-saarthi", "destination": "/html/products/gyan-saarthi.html" },
+    { "source": "/products/cmms", "destination": "/html/products/cmms.html" },
+    { "source": "/products/career-disha", "destination": "/html/products/career-disha.html" },
+    { "source": "/products/rtk-system", "destination": "/html/products/rtk-system.html" },
+    { "source": "/products/next-gen-scada", "destination": "/html/products/next-gen-scada.html" },
+    { "source": "/products/autopilot-uav", "destination": "/html/products/autopilot-uav.html" },
+
+    { "source": "/careers/senior-java-developer", "destination": "/html/company/senior-java-developer.html" },
+    { "source": "/careers/aiml-engineer", "destination": "/html/company/aiml-engineer.html" },
+    { "source": "/careers/iot-solutions-engineer", "destination": "/html/company/iot-solutions-engineer.html" },
+    { "source": "/careers/react-developer", "destination": "/html/company/react-developer.html" },
+    { "source": "/careers/business-development-executive", "destination": "/html/company/business-development-executive.html" },
+
+    { "source": "/services/:slug", "destination": "/html/services/template-offering.html" },
+    { "source": "/products/:slug", "destination": "/html/products/template-offering.html" },
+    { "source": "/careers/:slug", "destination": "/html/company/template-career.html" },
+    { "source": "/blog/:slug", "destination": "/html/blog/template-post.html" },
+
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/html/company/about-us.html" },
+    { "source": "/services", "destination": "/html/services/services.html" },
+    { "source": "/products", "destination": "/html/products/products.html" },
+    { "source": "/team", "destination": "/html/company/team.html" },
+    { "source": "/careers", "destination": "/html/company/careers.html" },
+    { "source": "/blog", "destination": "/html/blog/blog.html" },
+    { "source": "/faq", "destination": "/html/company/faq.html" },
+    { "source": "/contact", "destination": "/html/company/contact.html" },
+    { "source": "/privacy-policy", "destination": "/html/company/privacy-policy.html" },
+    { "source": "/login", "destination": "/html/company/login.html" }
   ]
 }
