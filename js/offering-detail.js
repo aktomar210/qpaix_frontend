@@ -193,7 +193,7 @@ import { SERVICE_USE_CASES, SERVICE_FEATURES } from './service-use-cases-data.js
           <div class="col-12">
             <div class="main-title text-start mb-4 wow fadeInUp" data-wow-delay="0.1s">
               <span class="qpaix-section-pill mb-2" style="background: rgba(0, 229, 255, 0.12); color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3); padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 1px; display: inline-block;"><i class="fa-solid fa-layer-group me-2"></i>PROVEN SCENARIOS</span>
-              <h3 class="heading-title text-white fw-bold mt-2" style="font-size: 2.2rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Proven Real-World <strong>Use Cases</strong></h3>
+              <h3 class="heading-title fw-bold mt-2" style="font-size: 2.2rem;">Proven Real-World <strong>Use Cases</strong></h3>
             </div>
           </div>
         </div>
@@ -256,7 +256,7 @@ import { SERVICE_USE_CASES, SERVICE_FEATURES } from './service-use-cases-data.js
             <div class="feature-icon-box mb-3">
               <i class="${escapeHtml(feat.icon)}" data-cms="feature-${slug}-${i + 1}-icon"></i>
             </div>
-            <h4 class="feature-title mb-2 text-start text-white" data-cms="feature-${slug}-${i + 1}-title">${escapeHtml(feat.title)}</h4>
+            <h4 class="feature-title mb-2 text-start" data-cms="feature-${slug}-${i + 1}-title">${escapeHtml(feat.title)}</h4>
             <p class="feature-desc text-start mb-3" data-cms="feature-${slug}-${i + 1}-desc">${escapeHtml(feat.desc)}</p>
             <div class="feature-tag-list mt-auto pt-2 d-flex flex-wrap gap-2">
               ${chip1 ? `<span class="feature-chip" data-cms="feature-${slug}-${i + 1}-chip-1">${escapeHtml(chip1)}</span>` : ''}
@@ -273,8 +273,8 @@ import { SERVICE_USE_CASES, SERVICE_FEATURES } from './service-use-cases-data.js
           <span class="qpaix-section-pill mb-2" data-cms="features-${slug}-pill" style="background: rgba(0, 229, 255, 0.12); color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3); padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 1px; display: inline-block;">
             <i class="fa-solid fa-layer-group me-2"></i>${escapeHtml(pillText)}
           </span>
-          <h3 class="heading-title text-white fw-bold mt-2" data-cms="features-${slug}-title" style="font-size: 2.2rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">${titleHtml}</h3>
-          <p class="qpaix-section-subtitle text-slate" data-cms="features-${slug}-subtitle" style="color: #94a3b8; font-size: 1rem; max-width: 750px;">${escapeHtml(subtitleText)}</p>
+          <h3 class="heading-title fw-bold mt-2" data-cms="features-${slug}-title" style="font-size: 2.2rem;">${titleHtml}</h3>
+          <p class="qpaix-section-subtitle text-slate" data-cms="features-${slug}-subtitle" style="color: #64748B; font-size: 1rem; max-width: 750px;">${escapeHtml(subtitleText)}</p>
         </div>
       </div>
       ${cardsHtml}

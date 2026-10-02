@@ -146,14 +146,37 @@
 
         animatedTextElements.forEach((element) => {
             const animationSplitText = new SplitText(element, { type: "chars, words" });
+            const stagger = 0.09;
+            const charDuration = 0.2;
+            const baseDelay = 0.2;
+
+            // .sisf-decorated's green highlight is a background on the wrapping <span>, which
+            // exists in the DOM (and so paints) as soon as SplitText wraps its chars — independent
+            // of the chars' own opacity/stagger. Without animating the span too, the highlight
+            // flashes in instantly while its own word's letters are still staggering in. Delay its
+            // own fade-in until that word's own last character would finish animating, so the
+            // highlight settles in sync with its text instead of before or during it.
+            const decoratedSpans = element.querySelectorAll(".sisf-decorated");
+            decoratedSpans.forEach((span) => {
+                gsap.set(span, { clearProps: "all" });
+                const charsInSpan = animationSplitText.chars.filter((c) => span.contains(c)).length;
+                const spanDelay = baseDelay + Math.max(0, charsInSpan - 1) * stagger;
+                gsap.from(span, {
+                    opacity: 0,
+                    duration: charDuration,
+                    delay: spanDelay,
+                    autoAlpha: 0,
+                    ease: "power5.out",
+                });
+            });
 
             gsap.from(animationSplitText.chars, {
 				opacity: 0,
-                duration: 0.2,         
-				delay: 0.2,
-				x: 250,                 
+                duration: charDuration,
+				delay: baseDelay,
+				x: 250,
 				autoAlpha: 0,
-				stagger: 0.09,         
+				stagger: stagger,
 				ease: "power5.out",
             });
         });

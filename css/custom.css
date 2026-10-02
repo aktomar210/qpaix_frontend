@@ -9720,7 +9720,7 @@ select {
 
 .sisf-page-footer-top-area,
 .sisf-page-footer-middle-area {
-	padding-top: 70px;
+	padding-top: 25px;
 	padding-bottom: 70px;
 	border-bottom: 1px solid #E1E1E1;
 }
@@ -9765,9 +9765,7 @@ select {
 }
 
 .sisf-block-heading h2 strong {
-	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: var(--body-text-color);
-    color: transparent;
+    color: var(--body-text-color);
 }
 
 .sisf-footer-btn a {
