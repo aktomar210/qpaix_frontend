@@ -330,6 +330,19 @@ header.sisf-main-header,
 	overflow: hidden !important;
 }
 
+.banner-img {
+	position: relative !important;
+}
+
+.banner-img::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(8, 14, 26, 0.48) 0%, rgba(8, 14, 26, 0.72) 100%);
+	z-index: 1;
+	pointer-events: none;
+}
+
 .banner-img,
 .banner-img figure {
 	height: 100% !important;
@@ -350,14 +363,20 @@ header.sisf-main-header,
 	}
 }
 
-/* User-requested: Make inner-page banner title bold and increase font size across all pages */
+/* User-requested: Make inner-page banner title bold and modern Poppins font across all pages with high contrast */
+.sisf-page-title {
+	z-index: 3 !important;
+}
+
 .sisf-page-title .sisf-m-title,
 .sisf-page-title h1.entry-title {
+	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 	font-size: 64px !important;
-	font-weight: 700 !important;
-	letter-spacing: 0.5px !important;
-	line-height: 1.25 !important;
-	text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+	font-weight: 800 !important;
+	letter-spacing: -0.5px !important;
+	line-height: 1.2 !important;
+	color: #FFFFFF !important;
+	text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.95) !important;
 }
 
 @media (max-width: 991px) {
@@ -606,8 +625,8 @@ header.sisf-main-header,
 }
 
 .culture-value-icon {
-	width: 52px;
-	height: 52px;
+	width: 64px;
+	height: 64px;
 	border-radius: 12px;
 	background: rgba(0, 188, 212, 0.12);
 	border: 1px solid rgba(0, 188, 212, 0.25);
@@ -616,13 +635,13 @@ header.sisf-main-header,
 	justify-content: center;
 	margin-bottom: 18px;
 	color: #00bcd4;
-	font-size: 22px;
+	font-size: 30px;
 }
 
 .culture-value-card h4 {
 	color: var(--body-text-color, #1A1A2E);
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 23px;
+	font-weight: 700;
 	margin-bottom: 8px;
 }
 
@@ -2339,6 +2358,8 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 }
 
 .project-card-title {
+	font-family: var(--default-font) !important;
+	font-style: normal !important;
 	font-size: 19px !important;
 	font-weight: 700 !important;
 	margin: 0 0 6px !important;
@@ -4836,3 +4857,18 @@ a.btn-default[style*="background:transparent"]:hover span {
 
 
 
+
+/* Global headings standardization: Modern, dark, and bold Poppins typography */
+h1, h2, h3, h4, h5, h6,
+.sisf-m-title,
+.heading-title,
+.section-title h2 {
+	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.sisf-page-title .sisf-m-title,
+.sisf-page-title h1.entry-title {
+	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+	font-weight: 800 !important;
+	color: #FFFFFF !important;
+}
