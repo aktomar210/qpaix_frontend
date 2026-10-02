@@ -628,13 +628,13 @@ header.sisf-main-header,
 	width: 64px;
 	height: 64px;
 	border-radius: 12px;
-	background: rgba(0, 188, 212, 0.12);
-	border: 1px solid rgba(0, 188, 212, 0.25);
+	background: rgba(26, 46, 92, 0.1);
+	border: 1px solid rgba(26, 46, 92, 0.25);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 18px;
-	color: #00bcd4;
+	color: #1A2E5C;
 	font-size: 30px;
 }
 
@@ -961,7 +961,7 @@ header.sisf-main-header,
    Director's Message, Vision & Mission Section — Futuristic Navy Theme
    ========================================================================== */
 .director-message-section {
-	background: radial-gradient(circle at 50% 15%, #F3F6FB 0%, #F8F9FB 60%, #FFFFFF 100%) !important;
+	background: radial-gradient(circle at 50% 15%, #D8DBE0 0%, #CBCFD6 60%, #BFC4CC 100%) !important;
 	position: relative !important;
 	overflow: hidden !important;
 	padding: 95px 0 105px !important;
@@ -1079,7 +1079,7 @@ header.sisf-main-header,
 }
 
 .director-text {
-	color: #475569 !important;
+	color: #000000 !important;
 	font-size: 15px !important;
 	line-height: 1.8 !important;
 	margin: 0 auto !important;
@@ -2097,7 +2097,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	border-radius: 50px !important;
 	background: rgba(0, 188, 212, 0.08) !important;
 	border: 1px solid rgba(0, 188, 212, 0.35) !important;
-	color: #38bdf8 !important;
+	color: #1A2E5C !important;
 	font-size: 11.5px !important;
 	font-weight: 700 !important;
 	letter-spacing: 1.8px !important;
@@ -2619,7 +2619,7 @@ body.qpaix-cms-edit-mode .offering-floating-chip .chip-text:focus {
 	gap: 7px;
 	background: rgba(56, 189, 248, 0.1);
 	border: 1px solid rgba(56, 189, 248, 0.28);
-	color: #38bdf8;
+	color: #1A2E5C;
 	font-size: 11px;
 	font-weight: 700;
 	letter-spacing: 0.06em;
@@ -3690,9 +3690,9 @@ a.btn-default[style*="background:transparent"]:hover span {
 	font-weight: 700;
 	letter-spacing: 1.6px;
 	text-transform: uppercase;
-	color: #00e5ff;
-	background: rgba(0, 229, 255, 0.08);
-	border: 1px solid rgba(0, 229, 255, 0.25);
+	color: #1A2E5C;
+	background: rgba(26, 46, 92, 0.08);
+	border: 1px solid rgba(26, 46, 92, 0.25);
 	padding: 5px 14px;
 	border-radius: 20px;
 }
@@ -3785,17 +3785,17 @@ a.btn-default[style*="background:transparent"]:hover span {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: rgba(0, 229, 255, 0.1) !important;
-	border: 1px solid rgba(0, 229, 255, 0.3) !important;
+	background: rgba(26, 46, 92, 0.1) !important;
+	border: 1px solid rgba(26, 46, 92, 0.3) !important;
 	border-radius: 14px;
-	color: #00e5ff !important;
+	color: #1A2E5C !important;
 	font-size: 22px;
 	box-shadow: 0 0 15px rgba(0, 229, 255, 0.12);
 	transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .shallow-card .image_wrapper i {
-	color: #00e5ff !important;
+	color: #1A2E5C !important;
 	font-size: 22px;
 }
 
@@ -3803,13 +3803,13 @@ a.btn-default[style*="background:transparent"]:hover span {
 	max-width: 32px;
 	max-height: 32px;
 	object-fit: contain;
-	filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.6));
+	filter: drop-shadow(0 0 6px rgba(26, 46, 92, 0.6));
 }
 
 .shallow-card .info-box:hover .image_wrapper {
-	background: rgba(0, 229, 255, 0.22) !important;
-	border-color: #00e5ff !important;
-	box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+	background: rgba(26, 46, 92, 0.22) !important;
+	border-color: #1A2E5C !important;
+	box-shadow: 0 0 20px rgba(26, 46, 92, 0.35);
 	transform: scale(1.06);
 }
 
@@ -3929,21 +3929,21 @@ a.btn-default[style*="background:transparent"]:hover span {
 .feature-icon-box {
 	width: 54px;
 	height: 54px;
-	background: rgba(0, 229, 255, 0.08);
-	border: 1px solid rgba(0, 229, 255, 0.25);
+	background: rgba(26, 46, 92, 0.08);
+	border: 1px solid rgba(26, 46, 92, 0.25);
 	border-radius: 14px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #00e5ff;
+	color: #1A2E5C;
 	font-size: 22px;
 	transition: all 0.3s ease;
 }
 
 .qpaix-feature-card:hover .feature-icon-box {
-	background: #00e5ff;
-	color: #0e0c43;
-	box-shadow: 0 0 16px rgba(0, 229, 255, 0.5);
+	background: #1A2E5C;
+	color: #FFFFFF;
+	box-shadow: 0 0 16px rgba(26, 46, 92, 0.5);
 	transform: scale(1.08);
 }
 
@@ -3971,9 +3971,9 @@ a.btn-default[style*="background:transparent"]:hover span {
 .feature-chip {
 	font-size: 11px;
 	font-weight: 600;
-	color: #00e5ff;
-	background: rgba(0, 229, 255, 0.06);
-	border: 1px solid rgba(0, 229, 255, 0.15);
+	color: #1A2E5C;
+	background: rgba(26, 46, 92, 0.06);
+	border: 1px solid rgba(26, 46, 92, 0.15);
 	padding: 3px 9px;
 	border-radius: 12px;
 	letter-spacing: 0.3px;
@@ -4044,20 +4044,20 @@ a.btn-default[style*="background:transparent"]:hover span {
 	width: 52px !important;
 	height: 52px !important;
 	border-radius: 14px !important;
-	background: rgba(0, 229, 255, 0.12) !important;
-	border: 1px solid rgba(0, 229, 255, 0.3) !important;
+	background: rgba(26, 46, 92, 0.12) !important;
+	border: 1px solid rgba(26, 46, 92, 0.3) !important;
 	display: flex !important;
 	align-items: center !important;
 	justify-content: center !important;
-	color: #00e5ff !important;
+	color: #1A2E5C !important;
 	font-size: 22px !important;
 	transition: all 0.3s ease !important;
 }
 
 .qpaix-feature-card:hover .feature-icon-box {
-	background: #00e5ff !important;
-	color: #081225 !important;
-	box-shadow: 0 0 18px rgba(0, 229, 255, 0.6) !important;
+	background: #1A2E5C !important;
+	color: #FFFFFF !important;
+	box-shadow: 0 0 18px rgba(26, 46, 92, 0.6) !important;
 	transform: scale(1.08) !important;
 }
 
@@ -4075,9 +4075,9 @@ a.btn-default[style*="background:transparent"]:hover span {
 }
 
 .qpaix-feature-card .feature-chip {
-	background: rgba(0, 229, 255, 0.08) !important;
-	border: 1px solid rgba(0, 229, 255, 0.22) !important;
-	color: #00e5ff !important;
+	background: rgba(26, 46, 92, 0.08) !important;
+	border: 1px solid rgba(26, 46, 92, 0.22) !important;
+	color: #1A2E5C !important;
 	font-size: 11px !important;
 	font-weight: 600 !important;
 	padding: 4px 12px !important;
@@ -4088,8 +4088,8 @@ a.btn-default[style*="background:transparent"]:hover span {
 }
 
 .qpaix-feature-card:hover .feature-chip {
-	background: rgba(0, 229, 255, 0.18) !important;
-	border-color: rgba(0, 229, 255, 0.4) !important;
+	background: rgba(26, 46, 92, 0.18) !important;
+	border-color: rgba(26, 46, 92, 0.4) !important;
 }
 
 /* ===================================================
@@ -4132,13 +4132,13 @@ a.btn-default[style*="background:transparent"]:hover span {
 }
 
 .shallow-card:hover .image_wrapper {
-	background: #00e5ff !important;
-	color: #081225 !important;
-	box-shadow: 0 0 15px rgba(0, 229, 255, 0.5) !important;
+	background: #1A2E5C !important;
+	color: #FFFFFF !important;
+	box-shadow: 0 0 15px rgba(26, 46, 92, 0.5) !important;
 }
 
 .shallow-card:hover .image_wrapper i {
-	color: #081225 !important;
+	color: #FFFFFF !important;
 }
 
 @keyframes qpaixPillGlow {

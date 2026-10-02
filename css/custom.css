@@ -9718,10 +9718,15 @@ select {
 	color: var(--main-color);
 } 
 
-.sisf-page-footer-top-area,
-.sisf-page-footer-middle-area {
+.sisf-page-footer-top-area {
 	padding-top: 25px;
 	padding-bottom: 70px;
+	border-bottom: 1px solid #E1E1E1;
+}
+
+.sisf-page-footer-middle-area {
+	padding-top: 25px;
+	padding-bottom: 30px;
 	border-bottom: 1px solid #E1E1E1;
 }
 
