@@ -142,13 +142,13 @@ body {
 	font-weight: 400;
 	line-height: 32px;
 	color: var(--body-text-color);
-	letter-spacing: 0.8px;
-	background-color: #FFFFFF;
+	letter-spacing: 0.2px;
+	background-color: #F8F9FB;
 	overflow: hidden;
 }
 
 .sisf--page {
-	background-color: #FFFFFF;
+	background-color: #F8F9FB;
 }
 
 .sisf-ai-page {
