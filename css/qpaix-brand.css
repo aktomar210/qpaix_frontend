@@ -338,7 +338,7 @@ header.sisf-main-header,
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(180deg, rgba(8, 14, 26, 0.48) 0%, rgba(8, 14, 26, 0.72) 100%);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0.30) 100%);
 	z-index: 1;
 	pointer-events: none;
 }
